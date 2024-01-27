@@ -9,7 +9,7 @@ func _on_finished():
 		play()
 
 
-func stage_ready(hat, suit):
+func stage_ready(_hat, _suit):
 	active=false
 	stop()
 	stream = leaving

@@ -5,6 +5,18 @@ signal audience_excited(excited:bool)
 signal audience_very_excited(very_excited:bool)
 signal start()
 
+var score: int = 0
+
 func do_start():
 	start.emit()
 	flashes.emit(1)
+
+func basic_scoring(count: int):
+	score += count
+	update_audience()
+	
+func update_audience():
+	print(score)
+	audience_excited.emit(score > 500)
+	audience_excited.emit(score > 1500)
+	flashes.emit(score / 25)

@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6bixybwlq2d"]
+[gd_scene load_steps=4 format=3 uid="uid://c6bixybwlq2d"]
 
 [ext_resource type="Texture2D" uid="uid://xt82k5vk2wxj" path="res://Assets/Clowny/Circus/Joggling/ball.png" id="1_ts7vc"]
 [ext_resource type="Script" path="res://Scripts/Effects/JugglingBall.gd" id="2_p3dpw"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ffa3c"]
+radius = 466.181
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_ts7vc")
+[node name="Node2D" type="Node2D"]
 script = ExtResource("2_p3dpw")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+input_pickable = true
+
+[node name="Sprite" type="Sprite2D" parent="Ball"]
+texture = ExtResource("1_ts7vc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(33, 3)
+shape = SubResource("CircleShape2D_ffa3c")
+
+[connection signal="input_event" from="Ball" to="." method="_on_ball_input_event"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=32 format=3 uid="uid://cw5vur68c6e31"]
 
-[ext_resource type="Script" path="res://Circus.gd" id="1_4csm5"]
+[ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
 [ext_resource type="Texture2D" uid="uid://cak7nbp1ha28r" path="res://Assets/Backgrounds/Circus Bowl/Tent.png" id="3_0olhk"]
 [ext_resource type="Texture2D" uid="uid://dgxbm5hhrfxuv" path="res://Assets/Backgrounds/Circus Bowl/Viewers Back.png" id="4_r5m4m"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://ddu8daxwkkq5y" path="res://Assets/Clowny/Circus/Joggling/joggling 2.png" id="23_8rpmd"]
 [ext_resource type="PackedScene" uid="uid://c6bixybwlq2d" path="res://Scenes/JugglingBall.tscn" id="23_ptw8d"]
 [ext_resource type="Texture2D" uid="uid://jiyg46jj7aul" path="res://Assets/Buttons/Artboard2.png" id="27_vvshc"]
+[ext_resource type="Texture2D" uid="uid://boyabtugbwtwk" path="res://Assets/Buttons/Artboard3.png" id="28_4ixbv"]
+[ext_resource type="Texture2D" uid="uid://cdsc2v65tav0c" path="res://Assets/Buttons/Artboard4.png" id="29_vkyjg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
 animations = [{
@@ -145,12 +147,36 @@ curve = SubResource("Curve2D_bau0j")
 [node name="JugglingButton" type="CharacterBody2D" parent="Acts"]
 input_pickable = true
 
-[node name="Artboard2" type="Sprite2D" parent="Acts/JugglingButton"]
+[node name="Sprite" type="Sprite2D" parent="Acts/JugglingButton"]
 position = Vector2(1076, 61)
 scale = Vector2(0.118405, 0.118405)
 texture = ExtResource("27_vvshc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/JugglingButton"]
+polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
+
+[node name="UnicycleButton" type="CharacterBody2D" parent="Acts"]
+position = Vector2(-127, -2)
+input_pickable = true
+
+[node name="Sprite" type="Sprite2D" parent="Acts/UnicycleButton"]
+position = Vector2(1076, 61)
+scale = Vector2(0.118405, 0.118405)
+texture = ExtResource("28_4ixbv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/UnicycleButton"]
+polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
+
+[node name="CakeButton" type="CharacterBody2D" parent="Acts"]
+position = Vector2(-251, -1)
+input_pickable = true
+
+[node name="Sprite" type="Sprite2D" parent="Acts/CakeButton"]
+position = Vector2(1076, 61)
+scale = Vector2(0.118405, 0.118405)
+texture = ExtResource("29_vkyjg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/CakeButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
 [connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
@@ -166,4 +192,8 @@ polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 [connection signal="start" from="." to="Audio/CrowdBackNoise" method="_on_finished"]
 [connection signal="finished" from="Audio/BackgroundMusic" to="Audio/BackgroundMusic" method="_on_finished"]
 [connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]
+[connection signal="ball_added" from="Acts/Juggling" to="." method="basic_scoring"]
+[connection signal="ball_dropped" from="Acts/Juggling" to="." method="basic_scoring"]
 [connection signal="input_event" from="Acts/JugglingButton" to="Acts" method="_juggling_button_pressed"]
+[connection signal="input_event" from="Acts/UnicycleButton" to="Acts" method="_unicycle_button_pressed"]
+[connection signal="input_event" from="Acts/CakeButton" to="Acts" method="_unicycle_button_pressed"]

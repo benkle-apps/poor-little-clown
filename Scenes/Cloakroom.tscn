@@ -24,12 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://ib7f8wdkxku" path="res://Assets/Clowny/Cloackroom/Clowny T-Pose.png" id="20_x78le"]
 [ext_resource type="Texture2D" uid="uid://beach0pmvyhgf" path="res://Assets/Clowny/Cloackroom/clowny earless color.png" id="21_dj5ss"]
 [ext_resource type="Texture2D" uid="uid://dqrouq6mokoxi" path="res://Assets/Clowny/Cloackroom/Clowny earless outlines.png" id="22_rkc0k"]
-[ext_resource type="Texture2D" uid="uid://ds74ksk2r37co" path="res://Assets/Clowny/Cloackroom/blink.png" id="23_lnb7y"]
 [ext_resource type="Texture2D" uid="uid://by8056jq5aqca" path="res://Assets/Clowny/Cloackroom/mackeup.png" id="24_ilsqg"]
 [ext_resource type="Texture2D" uid="uid://difjgw61yrcre" path="res://Assets/Clowny/Cloackroom/rednose.png" id="25_rl8c6"]
 [ext_resource type="Texture2D" uid="uid://c4rfgvj8v7yfo" path="res://Assets/Clowny/Cloackroom/wig no2.png" id="26_dndqv"]
 [ext_resource type="Texture2D" uid="uid://nyvys34avebo" path="res://Assets/Clowny/Cloackroom/clown vest.png" id="27_r4dws"]
 [ext_resource type="Texture2D" uid="uid://ce6ifgtpxhm8a" path="res://Assets/Clowny/Cloackroom/swimsuit.png" id="28_s3jbl"]
+[ext_resource type="Texture2D" uid="uid://d4dsbjtejixq2" path="res://Assets/Clowny/Cloackroom/blink mackup.png" id="29_eunof"]
 [ext_resource type="Texture2D" uid="uid://bwmpyd6eksnk3" path="res://Assets/Clowny/Cloackroom/tweet.png" id="29_n05dq"]
 [ext_resource type="Texture2D" uid="uid://jgl01kgj7vnd" path="res://Assets/Clowny/Cloackroom/queen hat.png" id="30_ea7mb"]
 [ext_resource type="Texture2D" uid="uid://vkj13stx0ty5" path="res://Assets/Clowny/Cloackroom/stinky cowboay.png" id="31_1l6xi"]
@@ -199,23 +199,22 @@ visible = false
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("21_dj5ss")
 
+[node name="Mackeup" type="Sprite2D" parent="Clowny/Body"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("24_ilsqg")
+
 [node name="ClownyEarlessOutlines" type="Sprite2D" parent="Clowny/Body"]
-visible = false
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("22_rkc0k")
 
 [node name="Blink" type="Sprite2D" parent="Clowny/Body"]
 visible = false
 position = Vector2(3017.36, 1388.89)
-texture = ExtResource("23_lnb7y")
+texture = ExtResource("29_eunof")
 
 [node name="Timer" type="Timer" parent="Clowny/Body"]
 wait_time = 0.1
 autostart = true
-
-[node name="Mackeup" type="Sprite2D" parent="Clowny"]
-position = Vector2(3017.36, 1388.89)
-texture = ExtResource("24_ilsqg")
 
 [node name="Rednose" type="Sprite2D" parent="Clowny"]
 position = Vector2(3017.36, 1388.89)
