@@ -12,6 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timer+=delta
+	rotate(delta)
 	scale = scale + scale*20*delta
 	color_sprite.modulate.a-=delta
 	if timer>2 :
