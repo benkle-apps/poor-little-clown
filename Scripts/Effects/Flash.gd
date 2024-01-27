@@ -5,6 +5,7 @@ extends Node2D
 var timer:float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("I am here... now!")
 	pass # Replace with function body.
 
 
