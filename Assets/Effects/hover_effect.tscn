@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bonrdqp32yhvc"]
+
+[ext_resource type="Texture2D" uid="uid://ne6xx0hmioic" path="res://Assets/Effects/hoover effect 1.png" id="1_qld5e"]
+[ext_resource type="Script" path="res://Scripts/Effects/ParticlesMouseHover.gd" id="2_65ymb"]
+
+[sub_resource type="Curve" id="Curve_tqawv"]
+_data = [Vector2(0.162896, 0.637363), 0.0, 0.0, 0, 0, Vector2(0.923077, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jrvtq"]
+colors = PackedColorArray(0.699653, 0.699653, 0.699653, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_rygub"]
+offsets = PackedFloat32Array(0.0103627, 0.502591, 1)
+colors = PackedColorArray(0.933401, 0.458871, 0.746385, 1, 0.659884, 0.657177, 1, 1, 0.691356, 0.851042, 1, 1)
+
+[node name="Hoover Effect" type="CPUParticles2D"]
+position = Vector2(-1407.28, 206.948)
+rotation = 0.523599
+skew = -0.0785398
+emitting = false
+amount = 4
+texture = ExtResource("1_qld5e")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(1.17, 1.09)
+spread = 144.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+radial_accel_min = -68.33
+angle_min = 219.0
+angle_max = 226.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_tqawv")
+color_ramp = SubResource("Gradient_jrvtq")
+color_initial_ramp = SubResource("Gradient_rygub")
+hue_variation_min = -0.52
+hue_variation_max = 0.58
+script = ExtResource("2_65ymb")
