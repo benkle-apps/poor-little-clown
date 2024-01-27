@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=36 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -26,8 +26,11 @@
 [ext_resource type="Script" path="res://Scripts/Acts/Juggling.gd" id="22_vo708"]
 [ext_resource type="Texture2D" uid="uid://ddu8daxwkkq5y" path="res://Assets/Clowny/Circus/Joggling/joggling 2.png" id="23_8rpmd"]
 [ext_resource type="PackedScene" uid="uid://c6bixybwlq2d" path="res://Scenes/JugglingBall.tscn" id="23_ptw8d"]
+[ext_resource type="Script" path="res://Scripts/Acts/Unicycle.gd" id="27_fhb3v"]
+[ext_resource type="Texture2D" uid="uid://b60sha7pcix4c" path="res://Assets/Clowny/Circus/one wheel/one wheel 1.png" id="27_hln7s"]
 [ext_resource type="Texture2D" uid="uid://jiyg46jj7aul" path="res://Assets/Buttons/Artboard2.png" id="27_vvshc"]
 [ext_resource type="Texture2D" uid="uid://boyabtugbwtwk" path="res://Assets/Buttons/Artboard3.png" id="28_4ixbv"]
+[ext_resource type="Texture2D" uid="uid://3wb5uwu1c6u3" path="res://Assets/Clowny/Circus/one wheel/one wheel 2.png" id="28_e3emj"]
 [ext_resource type="Texture2D" uid="uid://cdsc2v65tav0c" path="res://Assets/Buttons/Artboard4.png" id="29_vkyjg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
@@ -49,6 +52,20 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 512, 443, 0, 0, 0, 0, 513, 424, 44, 87, -44, -87, 440, 303, -33, 19, 33, -19, 476, 143, -63, -22, 63, 22, 617, 147, 0, 0, 0, 0, 647, 302, 0, 0, 0, 0, 550, 449, 0, 0, 0, 0, 548, 425, -138, 15, 138, -15, 539, 252, 0, 0, 0, 0, 510, 441, 0, 0, 0, 0, 512, 443)
 }
 point_count = 11
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7jnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_hln7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_e3emj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Circus" type="Node2D"]
 script = ExtResource("1_4csm5")
@@ -144,6 +161,24 @@ autoplay = "default"
 [node name="Path" type="Path2D" parent="Acts/Juggling"]
 curve = SubResource("Curve2D_bau0j")
 
+[node name="HideTimer" type="Timer" parent="Acts/Juggling"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Unicycle" type="Node2D" parent="Acts"]
+visible = false
+position = Vector2(535, 590)
+script = ExtResource("27_fhb3v")
+
+[node name="Timer" type="Timer" parent="Acts/Unicycle"]
+wait_time = 0.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Acts/Unicycle"]
+position = Vector2(8.00006, -185)
+scale = Vector2(0.13116, 0.13116)
+sprite_frames = SubResource("SpriteFrames_v7jnb")
+autoplay = "default"
+
 [node name="JugglingButton" type="CharacterBody2D" parent="Acts"]
 input_pickable = true
 
@@ -194,6 +229,8 @@ polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 [connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]
 [connection signal="ball_added" from="Acts/Juggling" to="." method="basic_scoring"]
 [connection signal="ball_dropped" from="Acts/Juggling" to="." method="basic_scoring"]
+[connection signal="timeout" from="Acts/Juggling/HideTimer" to="Acts/Juggling" method="_on_hide_timer_timeout"]
+[connection signal="timeout" from="Acts/Unicycle/Timer" to="Acts/Unicycle" method="_on_timer_timeout"]
 [connection signal="input_event" from="Acts/JugglingButton" to="Acts" method="_juggling_button_pressed"]
 [connection signal="input_event" from="Acts/UnicycleButton" to="Acts" method="_unicycle_button_pressed"]
 [connection signal="input_event" from="Acts/CakeButton" to="Acts" method="_unicycle_button_pressed"]

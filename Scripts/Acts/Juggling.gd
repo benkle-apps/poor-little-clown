@@ -41,3 +41,13 @@ func _on_ball_clicked(clicked_ball: Node2D):
 	follow.queue_free()
 	clicked_ball.drop()
 	ball_dropped.emit(1)
+	
+func do_hide():
+	drop_all_balls()
+	$AnimatedSprite2D.visible = false
+	$HideTimer.start()
+
+
+func _on_hide_timer_timeout():
+	$AnimatedSprite2D.visible = true
+	visible = false
