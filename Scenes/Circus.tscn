@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=22 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -16,8 +16,13 @@
 [ext_resource type="Script" path="res://Scripts/Sound/CrowdBackNoise.gd" id="14_qhap5"]
 [ext_resource type="AudioStream" uid="uid://dymoqro3ow25t" path="res://Assets/Sounds/Circus/Audience/338254__leo153__theater_audience_mincing.wav" id="15_ge4dh"]
 [ext_resource type="AudioStream" uid="uid://q5yhsy6lb3t4" path="res://Assets/Sounds/Circus/Audience/365662__csaszi__granular-laughing-csg.wav" id="16_auneo"]
+[ext_resource type="Script" path="res://Scripts/Sound/Random_Laugh.gd" id="17_dwa06"]
+[ext_resource type="AudioStream" uid="uid://6eemg6h8jtev" path="res://Assets/Sounds/Circus/Audience/119459__eneasz__male-laughte effektiertr.wav" id="18_hgvu2"]
+[ext_resource type="AudioStream" uid="uid://dqmff3eb1iw3w" path="res://Assets/Sounds/Circus/Audience/554908__driney__crazy-laugh hallig.wav" id="19_8fdwx"]
+[ext_resource type="AudioStream" uid="uid://mk5u6oka58hj" path="res://Assets/Sounds/Circus/Audience/670839__tomaszblaszczyk__mans-laugh hall.wav" id="20_35a18"]
+[ext_resource type="AudioStream" uid="uid://6f80pmb1ir6y" path="res://Assets/Sounds/Circus/Audience/525065__rickplayer__laugh.mp3" id="21_l5ngc"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Circus" type="Node2D"]
 script = ExtResource("1_4csm5")
 
 [node name="Background" type="Node2D" parent="."]
@@ -82,11 +87,20 @@ script = ExtResource("10_i8cn3")
 songs = Array[AudioStream]([ExtResource("11_3fisa"), ExtResource("12_0kfw4"), ExtResource("13_qql34")])
 
 [node name="CrowdBackNoise" type="AudioStreamPlayer" parent="."]
+volume_db = 12.219
+mix_target = 1
 script = ExtResource("14_qhap5")
 quite = ExtResource("15_ge4dh")
 excited = ExtResource("16_auneo")
 
+[node name="Random_Laugh" type="AudioStreamPlayer" parent="."]
+volume_db = 14.235
+script = ExtResource("17_dwa06")
+laughs = Array[AudioStream]([ExtResource("18_hgvu2"), ExtResource("19_8fdwx"), ExtResource("20_35a18"), ExtResource("21_l5ngc")])
+
 [connection signal="audience_excited" from="." to="CrowdBackNoise" method="audience_excited"]
+[connection signal="audience_excited" from="." to="Random_Laugh" method="_on_node_2d_audience_excited"]
+[connection signal="audience_very_excited" from="." to="Random_Laugh" method="audience_very_excited"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash1" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash2" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash3" method="set_likelyhood"]

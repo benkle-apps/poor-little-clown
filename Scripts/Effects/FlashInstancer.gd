@@ -7,6 +7,7 @@ var timer:float = 0
 var randomTimer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	randomTimer=rng.randf_range(-.3,1.0)
 	pass # Replace with function body.
 
