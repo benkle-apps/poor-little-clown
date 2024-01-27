@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=28 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -21,6 +21,30 @@
 [ext_resource type="AudioStream" uid="uid://dqmff3eb1iw3w" path="res://Assets/Sounds/Circus/Audience/554908__driney__crazy-laugh hallig.wav" id="19_8fdwx"]
 [ext_resource type="AudioStream" uid="uid://mk5u6oka58hj" path="res://Assets/Sounds/Circus/Audience/670839__tomaszblaszczyk__mans-laugh hall.wav" id="20_35a18"]
 [ext_resource type="AudioStream" uid="uid://6f80pmb1ir6y" path="res://Assets/Sounds/Circus/Audience/525065__rickplayer__laugh.mp3" id="21_l5ngc"]
+[ext_resource type="Texture2D" uid="uid://b325s7lnue8ou" path="res://Assets/Clowny/Circus/Joggling/joggling 1.png" id="22_bih2t"]
+[ext_resource type="Script" path="res://Scripts/Acts/Juggling.gd" id="22_vo708"]
+[ext_resource type="Texture2D" uid="uid://ddu8daxwkkq5y" path="res://Assets/Clowny/Circus/Joggling/joggling 2.png" id="23_8rpmd"]
+[ext_resource type="PackedScene" uid="uid://c6bixybwlq2d" path="res://Scenes/JugglingBall.tscn" id="23_ptw8d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_bih2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8rpmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_bau0j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 512, 443, 0, 0, 0, 0, 513, 424, 44, 87, -44, -87, 440, 303, -33, 19, 33, -19, 476, 143, -63, -22, 63, 22, 617, 147, 0, 0, 0, 0, 647, 302, 0, 0, 0, 0, 550, 449, 0, 0, 0, 0, 548, 425, -138, 15, 138, -15, 539, 252, 0, 0, 0, 0, 510, 441, 0, 0, 0, 0, 512, 443)
+}
+point_count = 11
 
 [node name="Circus" type="Node2D"]
 script = ExtResource("1_4csm5")
@@ -77,37 +101,78 @@ position = Vector2(744, 289)
 [node name="Flash6" parent="Background/Flashes" instance=ExtResource("9_mn4rg")]
 position = Vector2(1085, 329)
 
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Audio"]
 position = Vector2(573, 300)
 current = true
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
 mix_target = 1
 script = ExtResource("10_i8cn3")
 songs = Array[AudioStream]([ExtResource("11_3fisa"), ExtResource("12_0kfw4"), ExtResource("13_qql34")])
 
-[node name="CrowdBackNoise" type="AudioStreamPlayer" parent="."]
+[node name="CrowdBackNoise" type="AudioStreamPlayer" parent="Audio"]
 volume_db = 12.219
 mix_target = 1
 script = ExtResource("14_qhap5")
 quite = ExtResource("15_ge4dh")
 excited = ExtResource("16_auneo")
 
-[node name="Random_Laugh" type="AudioStreamPlayer" parent="."]
+[node name="Random_Laugh" type="AudioStreamPlayer" parent="Audio"]
 volume_db = 14.235
 script = ExtResource("17_dwa06")
 laughs = Array[AudioStream]([ExtResource("18_hgvu2"), ExtResource("19_8fdwx"), ExtResource("20_35a18"), ExtResource("21_l5ngc")])
 
-[connection signal="audience_excited" from="." to="CrowdBackNoise" method="audience_excited"]
-[connection signal="audience_excited" from="." to="Random_Laugh" method="_on_node_2d_audience_excited"]
-[connection signal="audience_very_excited" from="." to="Random_Laugh" method="audience_very_excited"]
+[node name="Acts" type="Node2D" parent="."]
+
+[node name="Juggling" type="Node2D" parent="Acts"]
+script = ExtResource("22_vo708")
+ball = ExtResource("23_ptw8d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Acts/Juggling"]
+position = Vector2(419, 424)
+scale = Vector2(0.128778, 0.128396)
+sprite_frames = SubResource("SpriteFrames_8kxqx")
+autoplay = "default"
+
+[node name="Path" type="Path2D" parent="Acts/Juggling"]
+curve = SubResource("Curve2D_bau0j")
+
+[node name="Follow1" type="PathFollow2D" parent="Acts/Juggling/Path"]
+position = Vector2(512, 443)
+rotation = -1.51821
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Acts/Juggling/Path"]
+position = Vector2(648.971, 182.478)
+rotation = 1.23963
+progress = 538.078
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Acts/Juggling/Path"]
+position = Vector2(565.383, 425.688)
+rotation = 2.15407
+progress = 807.117
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Acts/Juggling/Path"]
+position = Vector2(526.675, 253.857)
+rotation = -0.195349
+progress = 1076.16
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Acts/Juggling/Path"]
+position = Vector2(428.822, 198.29)
+rotation = -1.2091
+progress = 269.039
+
+[connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
+[connection signal="audience_excited" from="." to="Audio/Random_Laugh" method="_on_node_2d_audience_excited"]
+[connection signal="audience_very_excited" from="." to="Audio/Random_Laugh" method="audience_very_excited"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash1" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash2" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash3" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash4" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash5" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash6" method="set_likelyhood"]
-[connection signal="start" from="." to="BackgroundMusic" method="play_song"]
-[connection signal="start" from="." to="CrowdBackNoise" method="_on_finished"]
-[connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]
-[connection signal="finished" from="CrowdBackNoise" to="CrowdBackNoise" method="_on_finished"]
+[connection signal="start" from="." to="Audio/BackgroundMusic" method="play_song"]
+[connection signal="start" from="." to="Audio/CrowdBackNoise" method="_on_finished"]
+[connection signal="finished" from="Audio/BackgroundMusic" to="Audio/BackgroundMusic" method="_on_finished"]
+[connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]

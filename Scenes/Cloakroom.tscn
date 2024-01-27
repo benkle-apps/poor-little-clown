@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cimb4rkys1172"]
+[gd_scene load_steps=46 format=3 uid="uid://kq6l4lsxula7"]
 
 [ext_resource type="Script" path="res://Scripts/Cloakroom/Cloakroom.gd" id="1_6hmxn"]
 [ext_resource type="Texture2D" uid="uid://dyrfmgdkjheq" path="res://Assets/Backgrounds/Cloakroom/Background.png" id="2_nkpyl"]

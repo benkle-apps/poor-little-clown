@@ -17,7 +17,7 @@ func _process(delta):
 		if timer>50:
 			var instance:AudioStreamPlayer = preload("res://Assets/Sounds/sound_effect.tscn").instantiate()
 			instance.stream = laughs[rng.randf_range(0,laughs.size()-1)]
-			instance.play
+			instance.play()
 			add_child(instance)
 			timer = 0
 		
