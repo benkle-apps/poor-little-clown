@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://i3qr7yojl8jm"]
+
+[ext_resource type="Texture2D" uid="uid://cdwikd5tq3lfc" path="res://Assets/Flashes/Basesflash.png" id="1_7ncdf"]
+[ext_resource type="Script" path="res://Scripts/Effects/Flash.gd" id="2_v7ukb"]
+
+[node name="Basesflash" type="Sprite2D"]
+position = Vector2(-690.239, 165.657)
+scale = Vector2(0.174779, 0.174779)
+texture = ExtResource("1_7ncdf")
+script = ExtResource("2_v7ukb")
