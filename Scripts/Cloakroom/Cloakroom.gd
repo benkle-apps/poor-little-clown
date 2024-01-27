@@ -22,3 +22,7 @@ func _on_suit_clicked(clicked_suit: CharacterBody2D, chosen: bool):
 	
 func _ready_for_stage():
 	stage_ready.emit(selected_hat, selected_suit)
+
+func _on_go_button(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		_ready_for_stage()

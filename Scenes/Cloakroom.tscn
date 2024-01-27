@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://kq6l4lsxula7"]
+[gd_scene load_steps=47 format=3 uid="uid://kq6l4lsxula7"]
 
 [ext_resource type="Script" path="res://Scripts/Cloakroom/Cloakroom.gd" id="1_6hmxn"]
 [ext_resource type="Texture2D" uid="uid://dyrfmgdkjheq" path="res://Assets/Backgrounds/Cloakroom/Background.png" id="2_nkpyl"]
@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://cfigt3xgnw3te" path="res://Assets/Sounds/BackgroundMusic/Cloakroom/clownx27s-panic-15546.mp3" id="43_g3ing"]
 [ext_resource type="Script" path="res://Scripts/Sound/CloakroomBackgroundAndLeaving.gd" id="44_b8xvj"]
 [ext_resource type="AudioStream" uid="uid://brh1xhj7y15vr" path="res://Assets/Sounds/Circus/Audience/386764__ken788__crowd_applause short.wav" id="45_b3eml"]
+[ext_resource type="Texture2D" uid="uid://ctdv2accnjq7n" path="res://Assets/Buttons/Artboard1.png" id="46_dorgs"]
 
 [node name="Cloakroom" type="Node2D"]
 scale = Vector2(0.288, 0.288)
@@ -241,13 +242,6 @@ texture = ExtResource("29_n05dq")
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("26_dndqv")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 3041.67
-offset_top = 1920.14
-offset_right = 3409.67
-offset_bottom = 2212.14
-text = "Ready"
-
 [node name="ChangeCloths" type="AudioStreamPlayer" parent="."]
 script = ExtResource("33_x55k6")
 sounds = Array[AudioStream]([ExtResource("34_djl0h"), ExtResource("35_ey5ty"), ExtResource("36_c8o6x"), ExtResource("37_v7q60"), ExtResource("38_8ckki"), ExtResource("39_35bd7"), ExtResource("40_oaham")])
@@ -258,6 +252,17 @@ volume_db = -5.516
 autoplay = true
 script = ExtResource("44_b8xvj")
 leaving = ExtResource("45_b3eml")
+
+[node name="Button" type="CharacterBody2D" parent="."]
+input_pickable = true
+
+[node name="Artboard1" type="Sprite2D" parent="Button"]
+position = Vector2(3003.47, 2062.5)
+scale = Vector2(0.425143, 0.425143)
+texture = ExtResource("46_dorgs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Button"]
+polygon = PackedVector2Array(2576.39, 1975.69, 2565.97, 2173.61, 3447.92, 2170.14, 3447.92, 1954.86)
 
 [connection signal="accesory_clicked" from="." to="ChangeCloths" method="accesory_clicked"]
 [connection signal="stage_ready" from="." to="BackgroundMusic" method="stage_ready"]
@@ -281,5 +286,5 @@ leaving = ExtResource("45_b3eml")
 [connection signal="accessory_clicked" from="Room/Hats/TopHat" to="Clowny" method="_on_hat_clicked"]
 [connection signal="input_event" from="Room/Hats/TopHat" to="Room/Hats/TopHat" method="_on_input_event"]
 [connection signal="timeout" from="Clowny/Body/Timer" to="Clowny" method="blink"]
-[connection signal="pressed" from="Button" to="." method="_ready_for_stage"]
 [connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]
+[connection signal="input_event" from="Button" to="." method="_on_go_button"]

@@ -15,9 +15,8 @@ func _process(delta):
 		timer=0
 		if rng.randi_range(1,100) < likelyhood:
 			var instance = preload("res://Assets/Flashes/basesflash.tscn").instantiate()
-			instance.position = position;
+			instance.position = position
 			add_child(instance)
 
 func set_likelyhood(new_likelyhood):
 	likelyhood = new_likelyhood
-	print(likelyhood)

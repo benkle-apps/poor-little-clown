@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=30 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -22,9 +22,11 @@
 [ext_resource type="AudioStream" uid="uid://mk5u6oka58hj" path="res://Assets/Sounds/Circus/Audience/670839__tomaszblaszczyk__mans-laugh hall.wav" id="20_35a18"]
 [ext_resource type="AudioStream" uid="uid://6f80pmb1ir6y" path="res://Assets/Sounds/Circus/Audience/525065__rickplayer__laugh.mp3" id="21_l5ngc"]
 [ext_resource type="Texture2D" uid="uid://b325s7lnue8ou" path="res://Assets/Clowny/Circus/Joggling/joggling 1.png" id="22_bih2t"]
+[ext_resource type="Script" path="res://Scripts/Acts.gd" id="22_nuily"]
 [ext_resource type="Script" path="res://Scripts/Acts/Juggling.gd" id="22_vo708"]
 [ext_resource type="Texture2D" uid="uid://ddu8daxwkkq5y" path="res://Assets/Clowny/Circus/Joggling/joggling 2.png" id="23_8rpmd"]
 [ext_resource type="PackedScene" uid="uid://c6bixybwlq2d" path="res://Scenes/JugglingBall.tscn" id="23_ptw8d"]
+[ext_resource type="Texture2D" uid="uid://jiyg46jj7aul" path="res://Assets/Buttons/Artboard2.png" id="27_vvshc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
 animations = [{
@@ -125,6 +127,7 @@ script = ExtResource("17_dwa06")
 laughs = Array[AudioStream]([ExtResource("18_hgvu2"), ExtResource("19_8fdwx"), ExtResource("20_35a18"), ExtResource("21_l5ngc")])
 
 [node name="Acts" type="Node2D" parent="."]
+script = ExtResource("22_nuily")
 
 [node name="Juggling" type="Node2D" parent="Acts"]
 script = ExtResource("22_vo708")
@@ -139,29 +142,16 @@ autoplay = "default"
 [node name="Path" type="Path2D" parent="Acts/Juggling"]
 curve = SubResource("Curve2D_bau0j")
 
-[node name="Follow1" type="PathFollow2D" parent="Acts/Juggling/Path"]
-position = Vector2(512, 443)
-rotation = -1.51821
+[node name="JugglingButton" type="CharacterBody2D" parent="Acts"]
+input_pickable = true
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Acts/Juggling/Path"]
-position = Vector2(648.971, 182.478)
-rotation = 1.23963
-progress = 538.078
+[node name="Artboard2" type="Sprite2D" parent="Acts/JugglingButton"]
+position = Vector2(1076, 61)
+scale = Vector2(0.118405, 0.118405)
+texture = ExtResource("27_vvshc")
 
-[node name="PathFollow2D2" type="PathFollow2D" parent="Acts/Juggling/Path"]
-position = Vector2(565.383, 425.688)
-rotation = 2.15407
-progress = 807.117
-
-[node name="PathFollow2D3" type="PathFollow2D" parent="Acts/Juggling/Path"]
-position = Vector2(526.675, 253.857)
-rotation = -0.195349
-progress = 1076.16
-
-[node name="PathFollow2D4" type="PathFollow2D" parent="Acts/Juggling/Path"]
-position = Vector2(428.822, 198.29)
-rotation = -1.2091
-progress = 269.039
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/JugglingButton"]
+polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
 [connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
 [connection signal="audience_excited" from="." to="Audio/Random_Laugh" method="_on_node_2d_audience_excited"]
@@ -176,3 +166,4 @@ progress = 269.039
 [connection signal="start" from="." to="Audio/CrowdBackNoise" method="_on_finished"]
 [connection signal="finished" from="Audio/BackgroundMusic" to="Audio/BackgroundMusic" method="_on_finished"]
 [connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]
+[connection signal="input_event" from="Acts/JugglingButton" to="Acts" method="_juggling_button_pressed"]
