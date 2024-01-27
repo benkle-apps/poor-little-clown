@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mk5u6oka58hj"
+path="res://.godot/imported/670839__tomaszblaszczyk__mans-laugh hall.wav-0f517123453ca87b248363a45cf32fee.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Circus/Audience/670839__tomaszblaszczyk__mans-laugh hall.wav"
+dest_files=["res://.godot/imported/670839__tomaszblaszczyk__mans-laugh hall.wav-0f517123453ca87b248363a45cf32fee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

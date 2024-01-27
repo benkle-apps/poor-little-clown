@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dag0neid8hbq1"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/SoundEffect.gd" id="1_hcrsr"]
+
+[node name="SoundEffect" type="AudioStreamPlayer"]
+volume_db = 13.394
+autoplay = true
+script = ExtResource("1_hcrsr")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

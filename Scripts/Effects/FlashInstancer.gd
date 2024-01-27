@@ -6,6 +6,7 @@ var timer:float = 0
 var randomTimer = 0
 
 func _ready():
+	rng.randomize()
 	randomTimer=rng.randf_range(-.3,1.0)
 
 func _process(delta):
