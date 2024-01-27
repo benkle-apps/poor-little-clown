@@ -14,7 +14,8 @@ texture = ExtResource("1_7ncdf")
 script = ExtResource("2_v7ukb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -23.023
+volume_db = 6.112
+pitch_scale = 2.5
 autoplay = true
 script = ExtResource("3_safna")
 sounds = Array[AudioStream]([ExtResource("4_iuvld"), ExtResource("5_ph2s1"), ExtResource("6_4ryy1")])
