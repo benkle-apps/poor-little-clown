@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5hxtupmnfgww"]
+[gd_scene load_steps=9 format=3 uid="uid://ns1lroy1tqe8"]
 
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="1_3387b"]
 [ext_resource type="Texture2D" uid="uid://cak7nbp1ha28r" path="res://Assets/Backgrounds/Circus Bowl/Tent.png" id="1_eqrl5"]
