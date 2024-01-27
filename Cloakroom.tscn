@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://kq6l4lsxula7"]
+[gd_scene load_steps=33 format=3 uid="uid://kq6l4lsxula7"]
 
 [ext_resource type="Script" path="res://Scripts/Cloakroom/Cloakroom.gd" id="1_6hmxn"]
 [ext_resource type="Texture2D" uid="uid://dyrfmgdkjheq" path="res://Assets/Backgrounds/Cloakroom/Background.png" id="2_nkpyl"]
@@ -17,122 +17,228 @@
 [ext_resource type="Texture2D" uid="uid://cowfu1d3unk1a" path="res://Assets/Backgrounds/Cloakroom/tweet.png" id="15_6j4nv"]
 [ext_resource type="Script" path="res://Scripts/Cloakroom/Accessory.gd" id="15_t06te"]
 [ext_resource type="Texture2D" uid="uid://06heoco76q3q" path="res://Assets/Backgrounds/Cloakroom/wig.png" id="16_kvnwf"]
+[ext_resource type="Script" path="res://Scripts/Cloakroom/Clowny.gd" id="18_6crlo"]
+[ext_resource type="Texture2D" uid="uid://qvxx568ni6cj" path="res://Assets/Clowny/Cloackroom/wig no1.png" id="19_w1rx8"]
+[ext_resource type="Texture2D" uid="uid://ib7f8wdkxku" path="res://Assets/Clowny/Cloackroom/Clowny T-Pose.png" id="20_x78le"]
+[ext_resource type="Texture2D" uid="uid://beach0pmvyhgf" path="res://Assets/Clowny/Cloackroom/clowny earless color.png" id="21_dj5ss"]
+[ext_resource type="Texture2D" uid="uid://dqrouq6mokoxi" path="res://Assets/Clowny/Cloackroom/Clowny earless outlines.png" id="22_rkc0k"]
+[ext_resource type="Texture2D" uid="uid://ds74ksk2r37co" path="res://Assets/Clowny/Cloackroom/blink.png" id="23_lnb7y"]
+[ext_resource type="Texture2D" uid="uid://by8056jq5aqca" path="res://Assets/Clowny/Cloackroom/mackeup.png" id="24_ilsqg"]
+[ext_resource type="Texture2D" uid="uid://difjgw61yrcre" path="res://Assets/Clowny/Cloackroom/rednose.png" id="25_rl8c6"]
+[ext_resource type="Texture2D" uid="uid://c4rfgvj8v7yfo" path="res://Assets/Clowny/Cloackroom/wig no2.png" id="26_dndqv"]
+[ext_resource type="Texture2D" uid="uid://nyvys34avebo" path="res://Assets/Clowny/Cloackroom/clown vest.png" id="27_r4dws"]
+[ext_resource type="Texture2D" uid="uid://ce6ifgtpxhm8a" path="res://Assets/Clowny/Cloackroom/swimsuit.png" id="28_s3jbl"]
+[ext_resource type="Texture2D" uid="uid://bwmpyd6eksnk3" path="res://Assets/Clowny/Cloackroom/tweet.png" id="29_n05dq"]
+[ext_resource type="Texture2D" uid="uid://jgl01kgj7vnd" path="res://Assets/Clowny/Cloackroom/queen hat.png" id="30_ea7mb"]
+[ext_resource type="Texture2D" uid="uid://vkj13stx0ty5" path="res://Assets/Clowny/Cloackroom/stinky cowboay.png" id="31_1l6xi"]
+[ext_resource type="Texture2D" uid="uid://r4igm5hbd2v7" path="res://Assets/Clowny/Cloackroom/tophat.png" id="32_ba1d1"]
 
 [node name="Cloakroom" type="Node2D"]
 scale = Vector2(0.288, 0.288)
 script = ExtResource("1_6hmxn")
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="Room" type="Node2D" parent="."]
 position = Vector2(2000, 1118.06)
 scale = Vector2(0.755, 0.755)
 
-[node name="Background" type="Sprite2D" parent="Sprites"]
+[node name="Background" type="Sprite2D" parent="Room"]
 texture = ExtResource("2_nkpyl")
 
-[node name="Devider" type="Sprite2D" parent="Sprites"]
+[node name="Devider" type="Sprite2D" parent="Room"]
 texture = ExtResource("4_4bdei")
 
-[node name="Drawer" type="Sprite2D" parent="Sprites"]
+[node name="Drawer" type="Sprite2D" parent="Room"]
 texture = ExtResource("5_1hl8t")
 
-[node name="ClownVest" type="CharacterBody2D" parent="Sprites"]
+[node name="Suits" type="Node2D" parent="Room"]
+
+[node name="ClownVest" type="CharacterBody2D" parent="Room/Suits"]
 input_pickable = true
 script = ExtResource("15_t06te")
 type = 1
 id = "Clown Vest"
 
-[node name="Hanger" type="Sprite2D" parent="Sprites/ClownVest"]
+[node name="Hanger" type="Sprite2D" parent="Room/Suits/ClownVest"]
 texture = ExtResource("6_vj5cl")
 
-[node name="Sprite" type="Sprite2D" parent="Sprites/ClownVest"]
+[node name="Sprite" type="Sprite2D" parent="Room/Suits/ClownVest"]
 texture = ExtResource("3_3od1y")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprites/ClownVest"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Suits/ClownVest"]
 polygon = PackedVector2Array(-1030.17, -285.142, -832.413, -390.918, -630.059, -280.543, -634.658, 147.161, -699.043, 220.745, -846.21, 252.937, -979.58, 206.948, -1030.17, 156.359, -1048.57, -165.569)
 
-[node name="Tweed" type="CharacterBody2D" parent="Sprites"]
+[node name="Tweed" type="CharacterBody2D" parent="Room/Suits"]
 input_pickable = true
 script = ExtResource("15_t06te")
 type = 1
 id = "Tweed"
 
-[node name="Hanger" type="Sprite2D" parent="Sprites/Tweed"]
+[node name="Hanger" type="Sprite2D" parent="Room/Suits/Tweed"]
 texture = ExtResource("8_es2fw")
 
-[node name="Sprite" type="Sprite2D" parent="Sprites/Tweed"]
+[node name="Sprite" type="Sprite2D" parent="Room/Suits/Tweed"]
 texture = ExtResource("15_6j4nv")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprites/Tweed"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Suits/Tweed"]
 polygon = PackedVector2Array(-901.398, -381.72, -579.47, -142.574, -570.272, 505.881, -749.632, 478.287, -726.637, 413.901, -883.002, 473.688, -1020.97, 473.688, -1099.15, 418.5, -1089.96, -289.741)
 
-[node name="SwimSuit" type="CharacterBody2D" parent="Sprites"]
+[node name="SwimSuit" type="CharacterBody2D" parent="Room/Suits"]
 input_pickable = true
 script = ExtResource("15_t06te")
 type = 1
 id = "Swimsuit"
 
-[node name="Hanger" type="Sprite2D" parent="Sprites/SwimSuit"]
+[node name="Hanger" type="Sprite2D" parent="Room/Suits/SwimSuit"]
 texture = ExtResource("7_oyu24")
 
-[node name="Sprite" type="Sprite2D" parent="Sprites/SwimSuit"]
+[node name="Sprite" type="Sprite2D" parent="Room/Suits/SwimSuit"]
 texture = ExtResource("13_5tcar")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprites/SwimSuit"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Suits/SwimSuit"]
 polygon = PackedVector2Array(-915.195, -275.944, -864.606, -239.152, -841.611, 229.943, -942.789, 294.328, -997.976, 363.313, -1071.56, 363.313, -1103.75, 285.13, -1094.55, -128.777, -1034.77, -82.7874, -928.992, -119.579)
 
-[node name="Unicycle" type="Sprite2D" parent="Sprites"]
+[node name="Unicycle" type="Sprite2D" parent="Room"]
 texture = ExtResource("9_3g20n")
 
-[node name="QueenHat" type="CharacterBody2D" parent="Sprites"]
+[node name="Hats" type="Node2D" parent="Room"]
+
+[node name="QueenHat" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
 id = "Queen Hat"
 
-[node name="Sprite" type="Sprite2D" parent="Sprites/QueenHat"]
+[node name="Sprite" type="Sprite2D" parent="Room/Hats/QueenHat"]
 texture = ExtResource("10_r08ox")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprites/QueenHat"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Hats/QueenHat"]
 position = Vector2(-2649.01, -1480.87)
 scale = Vector2(1.3245, 1.3245)
 polygon = PackedVector2Array(826.389, 1093.75, 1121.53, 1003.47, 1114.58, 1427.08, 815.972, 1503.47)
 
-[node name="StinkyCowboy" type="CharacterBody2D" parent="Sprites"]
+[node name="StinkyCowboy" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
 id = "Stinky Cowboy"
 
-[node name="Sprite" type="Sprite2D" parent="Sprites/StinkyCowboy"]
+[node name="Sprite" type="Sprite2D" parent="Room/Hats/StinkyCowboy"]
 texture = ExtResource("12_uhqi4")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprites/StinkyCowboy"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Hats/StinkyCowboy"]
 polygon = PackedVector2Array(-1549.85, -740.44, -1163.54, -791.029, -1145.14, -271.345, -1117.55, -234.553, -1158.94, -206.96, -1568.25, -110.381)
 
-[node name="TopHat" type="CharacterBody2D" parent="Sprites"]
+[node name="TopHat" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
 id = "Top Hat"
 
-[node name="Sprite" type="Sprite2D" parent="Sprites/TopHat"]
+[node name="Sprite" type="Sprite2D" parent="Room/Hats/TopHat"]
 texture = ExtResource("14_q0nkj")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprites/TopHat"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Hats/TopHat"]
 polygon = PackedVector2Array(-1568.25, 607.064, -1186.53, 492.09, -1191.13, 1126.75, -1582.05, 1310.71)
 
-[node name="Wig" type="Sprite2D" parent="Sprites"]
+[node name="Wig" type="Sprite2D" parent="Room"]
 texture = ExtResource("16_kvnwf")
 
-[node name="Rednose" type="Sprite2D" parent="Sprites"]
+[node name="Rednose" type="Sprite2D" parent="Room"]
 texture = ExtResource("11_gmwxk")
 
-[connection signal="accessory_clicked" from="Sprites/ClownVest" to="." method="_on_suit_clicked"]
-[connection signal="input_event" from="Sprites/ClownVest" to="Sprites/ClownVest" method="_on_input_event"]
-[connection signal="accessory_clicked" from="Sprites/Tweed" to="." method="_on_suit_clicked"]
-[connection signal="input_event" from="Sprites/Tweed" to="Sprites/Tweed" method="_on_input_event"]
-[connection signal="accessory_clicked" from="Sprites/SwimSuit" to="." method="_on_suit_clicked"]
-[connection signal="input_event" from="Sprites/SwimSuit" to="Sprites/SwimSuit" method="_on_input_event"]
-[connection signal="accessory_clicked" from="Sprites/QueenHat" to="." method="_on_hat_clicked"]
-[connection signal="input_event" from="Sprites/QueenHat" to="Sprites/QueenHat" method="_on_input_event"]
-[connection signal="accessory_clicked" from="Sprites/StinkyCowboy" to="." method="_on_hat_clicked"]
-[connection signal="input_event" from="Sprites/StinkyCowboy" to="Sprites/StinkyCowboy" method="_on_input_event"]
-[connection signal="accessory_clicked" from="Sprites/TopHat" to="." method="_on_hat_clicked"]
-[connection signal="input_event" from="Sprites/TopHat" to="Sprites/TopHat" method="_on_input_event"]
+[node name="Clowny" type="Node2D" parent="."]
+position = Vector2(177.083, 309.028)
+scale = Vector2(0.722268, 0.722268)
+script = ExtResource("18_6crlo")
+
+[node name="Hats" type="Node2D" parent="Clowny"]
+
+[node name="QueenHat" type="Sprite2D" parent="Clowny/Hats"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("30_ea7mb")
+
+[node name="StinkyCowboy" type="Sprite2D" parent="Clowny/Hats"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("31_1l6xi")
+
+[node name="TopHat" type="Sprite2D" parent="Clowny/Hats"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("32_ba1d1")
+
+[node name="WigNo1" type="Sprite2D" parent="Clowny"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("19_w1rx8")
+
+[node name="Body" type="Node2D" parent="Clowny"]
+
+[node name="ClownyT-pose" type="Sprite2D" parent="Clowny/Body"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("20_x78le")
+
+[node name="ClownyEarlessColor" type="Sprite2D" parent="Clowny/Body"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("21_dj5ss")
+
+[node name="ClownyEarlessOutlines" type="Sprite2D" parent="Clowny/Body"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("22_rkc0k")
+
+[node name="Blink" type="Sprite2D" parent="Clowny/Body"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("23_lnb7y")
+
+[node name="Timer" type="Timer" parent="Clowny/Body"]
+wait_time = 0.1
+autostart = true
+
+[node name="Mackeup" type="Sprite2D" parent="Clowny"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("24_ilsqg")
+
+[node name="Rednose" type="Sprite2D" parent="Clowny"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("25_rl8c6")
+
+[node name="Suits" type="Node2D" parent="Clowny"]
+
+[node name="ClownVest" type="Sprite2D" parent="Clowny/Suits"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("27_r4dws")
+
+[node name="SwimSuit" type="Sprite2D" parent="Clowny/Suits"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("28_s3jbl")
+
+[node name="Tweed" type="Sprite2D" parent="Clowny/Suits"]
+visible = false
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("29_n05dq")
+
+[node name="WigNo2" type="Sprite2D" parent="Clowny"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("26_dndqv")
+
+[connection signal="accessory_clicked" from="Room/Suits/ClownVest" to="." method="_on_suit_clicked"]
+[connection signal="accessory_clicked" from="Room/Suits/ClownVest" to="Clowny" method="_on_suit_clicked"]
+[connection signal="input_event" from="Room/Suits/ClownVest" to="Room/Suits/ClownVest" method="_on_input_event"]
+[connection signal="accessory_clicked" from="Room/Suits/Tweed" to="." method="_on_suit_clicked"]
+[connection signal="accessory_clicked" from="Room/Suits/Tweed" to="Clowny" method="_on_suit_clicked"]
+[connection signal="input_event" from="Room/Suits/Tweed" to="Room/Suits/Tweed" method="_on_input_event"]
+[connection signal="accessory_clicked" from="Room/Suits/SwimSuit" to="." method="_on_suit_clicked"]
+[connection signal="accessory_clicked" from="Room/Suits/SwimSuit" to="Clowny" method="_on_suit_clicked"]
+[connection signal="input_event" from="Room/Suits/SwimSuit" to="Room/Suits/SwimSuit" method="_on_input_event"]
+[connection signal="accessory_clicked" from="Room/Hats/QueenHat" to="." method="_on_hat_clicked"]
+[connection signal="accessory_clicked" from="Room/Hats/QueenHat" to="Clowny" method="_on_hat_clicked"]
+[connection signal="input_event" from="Room/Hats/QueenHat" to="Room/Hats/QueenHat" method="_on_input_event"]
+[connection signal="accessory_clicked" from="Room/Hats/StinkyCowboy" to="." method="_on_hat_clicked"]
+[connection signal="accessory_clicked" from="Room/Hats/StinkyCowboy" to="Clowny" method="_on_hat_clicked"]
+[connection signal="input_event" from="Room/Hats/StinkyCowboy" to="Room/Hats/StinkyCowboy" method="_on_input_event"]
+[connection signal="accessory_clicked" from="Room/Hats/TopHat" to="." method="_on_hat_clicked"]
+[connection signal="accessory_clicked" from="Room/Hats/TopHat" to="Clowny" method="_on_hat_clicked"]
+[connection signal="input_event" from="Room/Hats/TopHat" to="Room/Hats/TopHat" method="_on_input_event"]
+[connection signal="timeout" from="Clowny/Body/Timer" to="Clowny" method="blink"]

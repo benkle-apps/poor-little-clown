@@ -1,20 +1,16 @@
 extends Node2D
 
-var hats: Array[CharacterBody2D]
-var suits: Array[CharacterBody2D]
-
-func _ready():
-	hats = [$Sprites/QueenHat, $Sprites/StinkyCowboy, $Sprites/TopHat]
-	suits = [$Sprites/ClownVest, $Sprites/Tweed, $Sprites/SwimSuit]
+@export var selected_hat: String = ''
+@export var selected_suit: String = ''
 
 func _on_hat_clicked(clicked_hat: CharacterBody2D, chosen: bool):
-	print(clicked_hat.type, clicked_hat.id, chosen)
-	for hat in hats:
+	for hat in $Room/Hats.get_children():
 		if hat != clicked_hat:
 			hat.unselect()
+	selected_hat = clicked_hat.id if chosen else ''
 
 func _on_suit_clicked(clicked_suit: CharacterBody2D, chosen: bool):
-	print(clicked_suit.type, clicked_suit.id, chosen)
-	for suit in suits:
+	for suit in $Room/Suits.get_children():
 		if suit != clicked_suit:
 			suit.unselect()
+	selected_suit = clicked_suit.id if chosen else ''

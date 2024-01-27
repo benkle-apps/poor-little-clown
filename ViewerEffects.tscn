@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://5hxtupmnfgww"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="1_3387b"]
+[ext_resource type="Texture2D" uid="uid://cak7nbp1ha28r" path="res://Assets/Backgrounds/Circus Bowl/Tent.png" id="1_eqrl5"]
+[ext_resource type="Texture2D" uid="uid://dgxbm5hhrfxuv" path="res://Assets/Backgrounds/Circus Bowl/Viewers Back.png" id="2_j6i8d"]
+[ext_resource type="Script" path="res://Scripts/Effects/ViewersLights.gd" id="3_ivvhf"]
+[ext_resource type="Texture2D" uid="uid://naitlwv5cust" path="res://Assets/Backgrounds/Circus Bowl/Viewers mid.png" id="4_jqyya"]
+[ext_resource type="Texture2D" uid="uid://dc661i68btq2e" path="res://Assets/Backgrounds/Circus Bowl/Viewers Front.png" id="5_muh5o"]
+[ext_resource type="Texture2D" uid="uid://pgf6tn6nsj73" path="res://Assets/Backgrounds/Circus Bowl/Sandpit.png" id="6_w3nmt"]
+[ext_resource type="Script" path="res://Scripts/Effects/FlashInstancer.gd" id="8_ker8a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(433, 254)
+scale = Vector2(0.217316, 0.217316)
+script = ExtResource("1_3387b")
+lightsColors = Array[Color]([Color(0.980392, 0.713726, 1, 1), Color(0.662745, 0.807843, 1, 1), Color(0.858824, 0.996078, 0.74902, 1)])
+changeTimes = Array[float]([7.0, 5.0])
+
+[node name="Tent" type="Sprite2D" parent="Background"]
+position = Vector2(469, 313)
+texture = ExtResource("1_eqrl5")
+
+[node name="ViewersBack" type="Sprite2D" parent="Background"]
+position = Vector2(469, 313)
+texture = ExtResource("2_j6i8d")
+script = ExtResource("3_ivvhf")
+lightsColor = Color(0, 0.584314, 0.6, 1)
+colorChange = true
+
+[node name="ViewersMid" type="Sprite2D" parent="Background"]
+position = Vector2(469, 313)
+texture = ExtResource("4_jqyya")
+script = ExtResource("3_ivvhf")
+
+[node name="ViewersFront" type="Sprite2D" parent="Background"]
+position = Vector2(469, 313)
+texture = ExtResource("5_muh5o")
+script = ExtResource("3_ivvhf")
+
+[node name="Sandpit" type="Sprite2D" parent="Background"]
+position = Vector2(469, 313)
+texture = ExtResource("6_w3nmt")
+
+[node name="Flashes" type="Node" parent="Background"]
+
+[node name="Flash1" type="Node2D" parent="Background/Flashes"]
+position = Vector2(88, 187)
+scale = Vector2(0.217316, 0.217316)
+script = ExtResource("8_ker8a")
