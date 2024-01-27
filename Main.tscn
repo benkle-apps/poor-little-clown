@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c00qoso72jyv7"]
+[gd_scene load_steps=4 format=3 uid="uid://c00qoso72jyv7"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_nqi3p"]
+[ext_resource type="PackedScene" uid="uid://kq6l4lsxula7" path="res://Scenes/Cloakroom.tscn" id="1_pf85s"]
 [ext_resource type="PackedScene" uid="uid://cw5vur68c6e31" path="res://Scenes/Circus.tscn" id="2_ux1pu"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_nqi3p")
 
 [node name="Circus" parent="." instance=ExtResource("2_ux1pu")]
+visible = false
+
+[node name="Cloakroom" parent="." instance=ExtResource("1_pf85s")]
 
 [connection signal="audience_excited" from="Circus" to="Circus/CrowdBackNoise" method="audience_excited"]
+[connection signal="stage_ready" from="Cloakroom" to="." method="_on_cloakroom_stage_ready"]
