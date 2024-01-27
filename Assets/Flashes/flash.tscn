@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4vbuf7r73x6m"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/FlashInstancer.gd" id="1_tklrs"]
+
+[node name="Flash1" type="Node2D"]
+position = Vector2(88, 187)
+scale = Vector2(0.217316, 0.217316)
+script = ExtResource("1_tklrs")

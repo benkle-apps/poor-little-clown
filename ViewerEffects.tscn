@@ -1,15 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=10 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="1_3387b"]
 [ext_resource type="Texture2D" uid="uid://cak7nbp1ha28r" path="res://Assets/Backgrounds/Circus Bowl/Tent.png" id="1_eqrl5"]
+[ext_resource type="Script" path="res://Circus.gd" id="1_nag2w"]
 [ext_resource type="Texture2D" uid="uid://dgxbm5hhrfxuv" path="res://Assets/Backgrounds/Circus Bowl/Viewers Back.png" id="2_j6i8d"]
 [ext_resource type="Script" path="res://Scripts/Effects/ViewersLights.gd" id="3_ivvhf"]
 [ext_resource type="Texture2D" uid="uid://naitlwv5cust" path="res://Assets/Backgrounds/Circus Bowl/Viewers mid.png" id="4_jqyya"]
 [ext_resource type="Texture2D" uid="uid://dc661i68btq2e" path="res://Assets/Backgrounds/Circus Bowl/Viewers Front.png" id="5_muh5o"]
 [ext_resource type="Texture2D" uid="uid://pgf6tn6nsj73" path="res://Assets/Backgrounds/Circus Bowl/Sandpit.png" id="6_w3nmt"]
-[ext_resource type="Script" path="res://Scripts/Effects/FlashInstancer.gd" id="8_ker8a"]
+[ext_resource type="PackedScene" uid="uid://4vbuf7r73x6m" path="res://Assets/Flashes/flash.tscn" id="8_nsu41"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_nag2w")
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(433, 254)
@@ -45,7 +47,31 @@ texture = ExtResource("6_w3nmt")
 
 [node name="Flashes" type="Node" parent="Background"]
 
-[node name="Flash1" type="Node2D" parent="Background/Flashes"]
-position = Vector2(88, 187)
-scale = Vector2(0.217316, 0.217316)
-script = ExtResource("8_ker8a")
+[node name="Flash1" parent="Background/Flashes" instance=ExtResource("8_nsu41")]
+position = Vector2(230, 153)
+
+[node name="Flash2" parent="Background/Flashes" instance=ExtResource("8_nsu41")]
+position = Vector2(23, 248)
+
+[node name="Flash3" parent="Background/Flashes" instance=ExtResource("8_nsu41")]
+position = Vector2(639, 127)
+
+[node name="Flash4" parent="Background/Flashes" instance=ExtResource("8_nsu41")]
+position = Vector2(1169, 182)
+
+[node name="Flash5" parent="Background/Flashes" instance=ExtResource("8_nsu41")]
+position = Vector2(744, 289)
+
+[node name="Flash6" parent="Background/Flashes" instance=ExtResource("8_nsu41")]
+position = Vector2(1085, 329)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(573, 300)
+current = true
+
+[connection signal="flashes" from="." to="Background/Flashes/Flash1" method="set_likelyhood"]
+[connection signal="flashes" from="." to="Background/Flashes/Flash2" method="set_likelyhood"]
+[connection signal="flashes" from="." to="Background/Flashes/Flash3" method="set_likelyhood"]
+[connection signal="flashes" from="." to="Background/Flashes/Flash4" method="set_likelyhood"]
+[connection signal="flashes" from="." to="Background/Flashes/Flash5" method="set_likelyhood"]
+[connection signal="flashes" from="." to="Background/Flashes/Flash6" method="set_likelyhood"]

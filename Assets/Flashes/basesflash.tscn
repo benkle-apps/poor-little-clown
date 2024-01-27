@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://i3qr7yojl8jm"]
+[gd_scene load_steps=7 format=3 uid="uid://i3qr7yojl8jm"]
 
 [ext_resource type="Texture2D" uid="uid://cdwikd5tq3lfc" path="res://Assets/Flashes/Basesflash.png" id="1_7ncdf"]
 [ext_resource type="Script" path="res://Scripts/Effects/Flash.gd" id="2_v7ukb"]
+[ext_resource type="Script" path="res://Scripts/Effects/RandomFlashSound.gd" id="3_safna"]
+[ext_resource type="AudioStream" uid="uid://0d1cvgmld7pk" path="res://Assets/Sounds/Flashes/410559__michellegrobler__old-camera-flash.wav" id="4_iuvld"]
+[ext_resource type="AudioStream" uid="uid://bs3h0asqujmgx" path="res://Assets/Sounds/Flashes/444682__larspriebe__taking-a-polaroid-photo.wav" id="5_ph2s1"]
+[ext_resource type="AudioStream" uid="uid://ctfxkyifvghh5" path="res://Assets/Sounds/Flashes/456988__regoneff__camera-with-flash-sound-and-then-charge-fast.mp3" id="6_4ryy1"]
 
 [node name="Basesflash" type="Sprite2D"]
 position = Vector2(-690.239, 165.657)
 scale = Vector2(0.174779, 0.174779)
 texture = ExtResource("1_7ncdf")
 script = ExtResource("2_v7ukb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -23.023
+autoplay = true
+script = ExtResource("3_safna")
+sounds = Array[AudioStream]([ExtResource("4_iuvld"), ExtResource("5_ph2s1"), ExtResource("6_4ryy1")])
