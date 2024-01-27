@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jlqyfmc4m5dk"
-path="res://.godot/imported/blink mackup.png-c58a8bc4a5e88046fe88e62b15ba7eeb.ctex"
+uid="uid://djpgqm4k8a1pe"
+path="res://.godot/imported/hoover effect.png-6eb465181e9a81a91774f51001df96e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Clowny/Cloackroom/blink mackup.png"
-dest_files=["res://.godot/imported/blink mackup.png-c58a8bc4a5e88046fe88e62b15ba7eeb.ctex"]
+source_file="res://Assets/Effects/hoover effect.png"
+dest_files=["res://.godot/imported/hoover effect.png-6eb465181e9a81a91774f51001df96e5.ctex"]
 
 [params]
 
