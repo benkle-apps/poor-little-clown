@@ -107,5 +107,7 @@ laughs = Array[AudioStream]([ExtResource("18_hgvu2"), ExtResource("19_8fdwx"), E
 [connection signal="flashes" from="." to="Background/Flashes/Flash4" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash5" method="set_likelyhood"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash6" method="set_likelyhood"]
+[connection signal="start" from="." to="BackgroundMusic" method="play_song"]
+[connection signal="start" from="." to="CrowdBackNoise" method="_on_finished"]
 [connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]
 [connection signal="finished" from="CrowdBackNoise" to="CrowdBackNoise" method="_on_finished"]
