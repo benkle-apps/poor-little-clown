@@ -2,4 +2,4 @@
 .godot/
 .idea/
 build/*
-
+.flatpak-builder

@@ -12,5 +12,4 @@ visible = false
 
 [node name="Cloakroom" parent="." instance=ExtResource("1_pf85s")]
 
-[connection signal="audience_excited" from="Circus" to="Circus/CrowdBackNoise" method="audience_excited"]
 [connection signal="stage_ready" from="Cloakroom" to="." method="_on_cloakroom_stage_ready"]
