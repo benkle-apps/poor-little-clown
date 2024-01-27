@@ -5,7 +5,7 @@ flatpak: linux
 	rm -rf build/Flatpak/export build/Flatpak/build
 
 linux:
-	flatpak run --branch=stable --arch=x86_64 --command=godot --file-forwarding org.godotengine.Godot --quiet --no-window --export-pack "Linux/X11" build/Linux/PoorLittleClown.x86_64
+	flatpak run --branch=stable --arch=x86_64 --command=godot --file-forwarding org.godotengine.Godot --quiet --headless --export-release "Linux/X11" build/Linux/PoorLittleClown.x86_64
 
 windows:
-	flatpak run --branch=stable --arch=x86_64 --command=godot --file-forwarding org.godotengine.Godot --quiet --no-window --export-pack "Windows Desktop" build/Windows/PoorLittleClown.exe
+	flatpak run --branch=stable --arch=x86_64 --command=godot --file-forwarding org.godotengine.Godot --quiet --headless --export-release "Windows Desktop" build/Linux/PoorLittleClown.exe
