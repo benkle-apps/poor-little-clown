@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dnff6cwqjlhwr" path="res://Assets/Sounds/Clowny/540788__magnuswaker__boing-1.wav" id="6_ggulb"]
 [ext_resource type="AudioStream" uid="uid://cm62k6euaxw5m" path="res://Assets/Sounds/Clowny/572540__birdofthenorth__pop.ogg" id="7_lu45o"]
 [ext_resource type="AudioStream" uid="uid://cjrvbv8kd0lqc" path="res://Assets/Sounds/Clowny/346373__denao270__throwing-whip-effect.wav" id="8_2r4jd"]
-[ext_resource type="AudioStream" uid="uid://bg8udkcdlg0w8" path="res://Assets/Sounds/Clowny/473583__nox_sound__whoosh_rope.wav" id="9_wf3or"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/Clowny/473583__nox_sound__whoosh_rope.wav" id="9_wf3or"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ffa3c"]
 radius = 466.181
