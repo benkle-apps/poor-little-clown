@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6bixybwlq2d"]
+[gd_scene load_steps=11 format=3 uid="uid://c6bixybwlq2d"]
 
 [ext_resource type="Texture2D" uid="uid://xt82k5vk2wxj" path="res://Assets/Clowny/Circus/Joggling/ball.png" id="1_ts7vc"]
 [ext_resource type="Script" path="res://Scripts/Effects/JugglingBall.gd" id="2_p3dpw"]
+[ext_resource type="Script" path="res://Scenes/DropSoundBall.gd" id="3_tsddr"]
+[ext_resource type="AudioStream" uid="uid://cmludeiarlhom" path="res://Assets/Sounds/Clowny/439185__javapimp__pop-16.ogg" id="4_4b1nt"]
+[ext_resource type="AudioStream" uid="uid://dfhr117dtuby1" path="res://Assets/Sounds/Clowny/394873__deleted_user_6479820__throw-1.mp3" id="5_t2sw4"]
+[ext_resource type="AudioStream" uid="uid://dnff6cwqjlhwr" path="res://Assets/Sounds/Clowny/540788__magnuswaker__boing-1.wav" id="6_ggulb"]
+[ext_resource type="AudioStream" uid="uid://cm62k6euaxw5m" path="res://Assets/Sounds/Clowny/572540__birdofthenorth__pop.ogg" id="7_lu45o"]
+[ext_resource type="AudioStream" uid="uid://cjrvbv8kd0lqc" path="res://Assets/Sounds/Clowny/346373__denao270__throwing-whip-effect.wav" id="8_2r4jd"]
+[ext_resource type="AudioStream" uid="uid://bg8udkcdlg0w8" path="res://Assets/Sounds/Clowny/473583__nox_sound__whoosh_rope.wav" id="9_wf3or"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ffa3c"]
 radius = 466.181
@@ -19,4 +26,16 @@ texture = ExtResource("1_ts7vc")
 position = Vector2(33, 3)
 shape = SubResource("CircleShape2D_ffa3c")
 
+[node name="DropSound" type="AudioStreamPlayer" parent="Ball"]
+volume_db = 7.429
+script = ExtResource("3_tsddr")
+sounds = Array[AudioStream]([ExtResource("4_4b1nt"), ExtResource("5_t2sw4"), ExtResource("6_ggulb"), ExtResource("7_lu45o"), ExtResource("8_2r4jd")])
+
+[node name="DropWhooshSound" type="AudioStreamPlayer" parent="Ball"]
+volume_db = 11.03
+script = ExtResource("3_tsddr")
+sounds = Array[AudioStream]([ExtResource("9_wf3or")])
+
+[connection signal="clicked" from="." to="Ball/DropSound" method="ball_clicked"]
+[connection signal="clicked" from="." to="Ball/DropWhooshSound" method="_on_node_2d_clicked"]
 [connection signal="input_event" from="Ball" to="." method="_on_ball_input_event"]
