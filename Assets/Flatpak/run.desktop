@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Poor Little Clown
+Comment=Help a poor little clown cat to get big laughs in the big tent.
+Comment[de]=Hilf einem armen kleinen Katzenclown, für Gelächter im Zelt zu sorgen.
+Exec=PoorLittleClown.x86_64
+Type=Application
+Icon=info.benkle.PoorLittleClown
+Categories=Game;ArcadeGame;
+Keywords=arcade;game;furry;

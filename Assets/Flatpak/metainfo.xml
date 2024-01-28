@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>info.benkle.PoorLittleClown</id>
+  <metadata_license>CC0-4.0</metadata_license>
+  <project_license>LicenseRef-proprietary</project_license>
+  <name>Poor Little Clown</name>
+  <summary>Help a poor little clown cat to get big laughs in the big tent.</summary>
+  <description>
+    <p>
+      Oh no, this little clown cat has his first outing in the big tent and is really nervous!
+      Help him dress up and perform his act. Mess up his juggling and throw pies at him until
+      the audience roars in laughte!
+    </p>
+  </description>
+  <releases>
+    <release version="1.0.0" date="2024-01-28" />
+  </releases>
+  <url type="homepage">https://globalgamejam.org/games/2024/poor-little-clown-0</url>
+  <update_contact>games@benkle.info</update_contact>
+  <categories>
+    <category>Game</category>
+    <category>ArcadeGame</category>
+  </categories>
+</component>
