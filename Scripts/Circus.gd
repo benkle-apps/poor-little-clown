@@ -9,6 +9,8 @@ signal wear(outfit: String)
 signal game_over(success: bool)
 
 var score: int = 0
+var timer:float = 0
+var gameover:bool = false
 
 func do_start(outfit: String):
 	wear.emit(outfit)
@@ -17,6 +19,7 @@ func do_start(outfit: String):
 	$Descore.start()
 	
 func do_stop():
+	gameover=true
 	$Descore.stop()
 	flashes.emit(0)
 	audience_excited.emit(false)
@@ -26,6 +29,14 @@ func do_stop():
 func basic_scoring(count: int):
 	score += count
 	update_audience()
+	
+func _process(delta):
+	if !gameover:
+		timer+=delta
+		if timer>5:
+			timer=0
+			if score<-100 :
+				$boo.play()
 	
 func update_audience():
 	$Score.text = str(score)

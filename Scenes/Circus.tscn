@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=157 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -150,6 +150,7 @@
 [ext_resource type="Texture2D" uid="uid://b601mvu0n0pjo" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/pie1.png" id="137_3s6rf"]
 [ext_resource type="Texture2D" uid="uid://xksp58lif5fn" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/pie2.png" id="138_f6dqu"]
 [ext_resource type="Texture2D" uid="uid://sc50bwq2j4y4" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/pie3.png" id="139_ux7lf"]
+[ext_resource type="AudioStream" uid="uid://kfce6ln51adk" path="res://Assets/Sounds/Circus/Audience/403060__valeriebbb96__boooh.wav" id="151_r1eg8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
 animations = [{
@@ -958,6 +959,10 @@ offset_bottom = 31.0
 theme_override_font_sizes/font_size = 64
 text = "Trololo"
 script = ExtResource("38_v2qeq")
+
+[node name="boo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("151_r1eg8")
+volume_db = 5.895
 
 [connection signal="audience_excited" from="." to="Audio/Random_Laugh" method="_on_node_2d_audience_excited"]
 [connection signal="audience_very_excited" from="." to="Audio/Random_Laugh" method="audience_very_excited"]
