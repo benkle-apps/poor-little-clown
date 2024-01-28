@@ -203,18 +203,17 @@ visible = false
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("32_ba1d1")
 
+[node name="ClownyT-pose" type="Sprite2D" parent="Clowny"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("20_x78le")
+
 [node name="WigNo1" type="Sprite2D" parent="Clowny"]
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("19_w1rx8")
 
 [node name="Body" type="Node2D" parent="Clowny"]
 
-[node name="ClownyT-pose" type="Sprite2D" parent="Clowny/Body"]
-position = Vector2(3017.36, 1388.89)
-texture = ExtResource("20_x78le")
-
 [node name="ClownyEarlessColor" type="Sprite2D" parent="Clowny/Body"]
-visible = false
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("21_dj5ss")
 
@@ -239,6 +238,10 @@ autostart = true
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("25_rl8c6")
 
+[node name="WigNo2" type="Sprite2D" parent="Clowny"]
+position = Vector2(3017.36, 1388.89)
+texture = ExtResource("26_dndqv")
+
 [node name="Suits" type="Node2D" parent="Clowny"]
 
 [node name="ClownVest" type="Sprite2D" parent="Clowny/Suits"]
@@ -255,10 +258,6 @@ texture = ExtResource("28_s3jbl")
 visible = false
 position = Vector2(3017.36, 1388.89)
 texture = ExtResource("29_n05dq")
-
-[node name="WigNo2" type="Sprite2D" parent="Clowny"]
-position = Vector2(3017.36, 1388.89)
-texture = ExtResource("26_dndqv")
 
 [node name="ChangeCloths" type="AudioStreamPlayer" parent="."]
 script = ExtResource("33_x55k6")

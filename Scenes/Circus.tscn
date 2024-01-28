@@ -836,7 +836,7 @@ ball = ExtResource("23_ptw8d")
 position = Vector2(532, 430)
 scale = Vector2(0.128778, 0.128396)
 sprite_frames = SubResource("SpriteFrames_8kxqx")
-animation = &"clownvest_queenhat"
+animation = &"naked_naked"
 
 [node name="Path" type="Path2D" parent="Acts/Juggling"]
 curve = SubResource("Curve2D_bau0j")

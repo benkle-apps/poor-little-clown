@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c00qoso72jyv7"]
+[gd_scene load_steps=5 format=3 uid="uid://c00qoso72jyv7"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_nqi3p"]
 [ext_resource type="PackedScene" uid="uid://kq6l4lsxula7" path="res://Scenes/Cloakroom.tscn" id="1_pf85s"]
 [ext_resource type="PackedScene" uid="uid://cw5vur68c6e31" path="res://Scenes/Circus.tscn" id="2_ux1pu"]
+[ext_resource type="PackedScene" uid="uid://ivfw305pmmwl" path="res://Scenes/GameEnd.tscn" id="4_essc2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_nqi3p")
@@ -12,5 +13,13 @@ visible = false
 
 [node name="Cloakroom" parent="." instance=ExtResource("1_pf85s")]
 
+[node name="GameEnd" parent="." instance=ExtResource("4_essc2")]
+visible = false
+position = Vector2(8, 0)
+
 [connection signal="audience_excited" from="Circus" to="Circus/Audio/CrowdBackNoise" method="audience_excited"]
+[connection signal="audience_very_excited" from="Circus" to="Circus/Audio/Random_Laugh" method="audience_very_excited"]
+[connection signal="game_over" from="Circus" to="." method="_on_circus_game_over"]
+[connection signal="accesory_clicked" from="Cloakroom" to="Cloakroom/ChangeCloths" method="accesory_clicked"]
 [connection signal="stage_ready" from="Cloakroom" to="." method="_on_cloakroom_stage_ready"]
+[connection signal="stage_ready" from="Cloakroom" to="Cloakroom/BackgroundMusic" method="stage_ready"]

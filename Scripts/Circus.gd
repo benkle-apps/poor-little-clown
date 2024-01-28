@@ -6,6 +6,7 @@ signal audience_very_excited(very_excited:bool)
 signal start()
 signal stop()
 signal wear(outfit: String)
+signal game_over(success: bool)
 
 var score: int = 0
 
@@ -28,6 +29,12 @@ func update_audience():
 	audience_excited.emit(score > 500)
 	audience_very_excited.emit(score > 1000)
 	flashes.emit(score / 75)
+	if score <= -1500:
+		game_over.emit(false)
+		do_stop()
+	if score >= 2000:
+		game_over.emit(true)
+		do_stop()
 
 
 func _on_descore_timeout():
