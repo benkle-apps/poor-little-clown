@@ -21,7 +21,6 @@ func do_stop():
 	flashes.emit(0)
 	audience_excited.emit(false)
 	audience_very_excited.emit(false)
-	$Acts/Juggling/Juglesound.queue_free()
 	stop.emit()
 
 func basic_scoring(count: int):

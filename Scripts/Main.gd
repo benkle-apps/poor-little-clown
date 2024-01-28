@@ -11,6 +11,8 @@ var clothing_scores = {
 }
 
 func _on_cloakroom_stage_ready(hat, suit):
+	if suit == "swimsuit":
+		$AudioStreamPlayer.play()
 	$Cloakroom.visible = false
 	$Circus.visible = true
 	$Circus.do_start(suit + '_' + hat)

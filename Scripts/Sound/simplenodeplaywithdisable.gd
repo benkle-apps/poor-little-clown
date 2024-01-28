@@ -9,7 +9,7 @@ func play_sound():
 func stop_sound():
 	stop()
 
-func disable():
+func disable(_s:bool=false):
 	active = false
 	
 func enable():
