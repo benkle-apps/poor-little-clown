@@ -17,7 +17,7 @@ func basic_scoring(count: int):
 	update_audience()
 	
 func update_audience():
-	print(score)
+	$Score.text = str(score)
 	audience_excited.emit(score > 500)
 	audience_excited.emit(score > 1500)
 	flashes.emit(score / 25)
