@@ -68,3 +68,7 @@ func _on_hide_timer_timeout():
 	is_hiding = false
 	$AnimatedSprite2D.visible = true
 	visible = false
+
+
+func _on_circus_wear(outfit):
+	$AnimatedSprite2D.play(outfit)

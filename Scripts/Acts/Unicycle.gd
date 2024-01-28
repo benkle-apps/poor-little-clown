@@ -35,3 +35,7 @@ func _process(delta):
 		do_score.emit(int(abs(rotation_degrees)/10))
 	position.x += delta * rotation_degrees * 50
 	position.x = clamp(position.x, rim, anti_rim)
+
+
+func _on_circus_wear(outfit):
+	$AnimatedSprite2D.play(outfit)

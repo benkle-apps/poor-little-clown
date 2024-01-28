@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=156 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -21,44 +21,312 @@
 [ext_resource type="AudioStream" uid="uid://dqmff3eb1iw3w" path="res://Assets/Sounds/Circus/Audience/554908__driney__crazy-laugh hallig.wav" id="19_8fdwx"]
 [ext_resource type="AudioStream" uid="uid://mk5u6oka58hj" path="res://Assets/Sounds/Circus/Audience/670839__tomaszblaszczyk__mans-laugh hall.wav" id="20_35a18"]
 [ext_resource type="AudioStream" uid="uid://6f80pmb1ir6y" path="res://Assets/Sounds/Circus/Audience/525065__rickplayer__laugh.mp3" id="21_l5ngc"]
-[ext_resource type="Texture2D" uid="uid://b325s7lnue8ou" path="res://Assets/Clowny/Circus/Joggling/joggling 1.png" id="22_bih2t"]
 [ext_resource type="Script" path="res://Scripts/Acts.gd" id="22_nuily"]
 [ext_resource type="Script" path="res://Scripts/Acts/Juggling.gd" id="22_vo708"]
-[ext_resource type="Texture2D" uid="uid://ddu8daxwkkq5y" path="res://Assets/Clowny/Circus/Joggling/joggling 2.png" id="23_8rpmd"]
 [ext_resource type="PackedScene" uid="uid://c6bixybwlq2d" path="res://Scenes/JugglingBall.tscn" id="23_ptw8d"]
+[ext_resource type="Texture2D" uid="uid://crvajy7aetkbp" path="res://Assets/Clowny/Clowny Circus/clown vest/jugglin1.png" id="25_tulsq"]
+[ext_resource type="Texture2D" uid="uid://d2mq22d0esupm" path="res://Assets/Clowny/Clowny Circus/clown vest/jugglin2.png" id="26_wsbnd"]
 [ext_resource type="Script" path="res://Scripts/Acts/Unicycle.gd" id="27_fhb3v"]
 [ext_resource type="Texture2D" uid="uid://b60sha7pcix4c" path="res://Assets/Clowny/Circus/one wheel/one wheel 1.png" id="27_hln7s"]
+[ext_resource type="Texture2D" uid="uid://ddxk1t72kknk1" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/jugglin1.png" id="27_r8wbv"]
 [ext_resource type="Texture2D" uid="uid://jiyg46jj7aul" path="res://Assets/Buttons/Artboard2.png" id="27_vvshc"]
 [ext_resource type="AudioStream" uid="uid://dfhr117dtuby1" path="res://Assets/Sounds/Clowny/394873__deleted_user_6479820__throw-1.mp3" id="27_yujlq"]
 [ext_resource type="Texture2D" uid="uid://boyabtugbwtwk" path="res://Assets/Buttons/Artboard3.png" id="28_4ixbv"]
 [ext_resource type="Texture2D" uid="uid://3wb5uwu1c6u3" path="res://Assets/Clowny/Circus/one wheel/one wheel 2.png" id="28_e3emj"]
+[ext_resource type="Texture2D" uid="uid://d0sjdvxe1by45" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/jugglin2.png" id="28_tyqa6"]
+[ext_resource type="Texture2D" uid="uid://blc2vl53tf3ei" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/jugglin1.png" id="29_lge5a"]
 [ext_resource type="Texture2D" uid="uid://cdsc2v65tav0c" path="res://Assets/Buttons/Artboard4.png" id="29_vkyjg"]
 [ext_resource type="AudioStream" uid="uid://bogtvypsfbkvl" path="res://Assets/Sounds/Clowny/squicky whwel7.wav" id="30_6gqem"]
 [ext_resource type="Texture2D" uid="uid://2bbkicdv5vix" path="res://Assets/Clowny/Circus/pie/pie1.png" id="30_58fkr"]
 [ext_resource type="Script" path="res://Scripts/Acts/Pie.gd" id="30_biymb"]
+[ext_resource type="Texture2D" uid="uid://bm2wu6dttyd5y" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/jugglin2.png" id="30_ecjxd"]
 [ext_resource type="Texture2D" uid="uid://cf8kne61pr8rt" path="res://Assets/Clowny/Circus/pie/pie2.png" id="31_a0tfa"]
 [ext_resource type="Script" path="res://Scripts/Sound/simplenodeplaywithdisable.gd" id="31_c22lq"]
+[ext_resource type="Texture2D" uid="uid://b85r0k4boxrt8" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/jugglin1.png" id="31_efkvg"]
 [ext_resource type="Texture2D" uid="uid://bedwxa4fiocte" path="res://Assets/Clowny/Circus/pie/pie3.png" id="32_xwl8a"]
+[ext_resource type="Texture2D" uid="uid://dpp3h0608nh34" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/jugglin2.png" id="32_ymvci"]
+[ext_resource type="Texture2D" uid="uid://giewfy532rop" path="res://Assets/Clowny/Clowny Circus/naked/jugglin1.png" id="33_pxhk8"]
 [ext_resource type="Texture2D" uid="uid://4qyh8ijiaicj" path="res://Assets/Clowny/Circus/Extras/pie.png" id="34_23vrb"]
+[ext_resource type="Texture2D" uid="uid://di4uahntyywgk" path="res://Assets/Clowny/Clowny Circus/naked/jugglin2.png" id="34_hgx83"]
+[ext_resource type="Texture2D" uid="uid://dot2asjm1cyay" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/jugglin1.png" id="35_o2rcw"]
 [ext_resource type="AudioStream" uid="uid://cmubwi41ysqfg" path="res://Assets/Sounds/Clowny/326133__wagna__falling.wav" id="35_quluq"]
 [ext_resource type="Script" path="res://Scripts/Effects/PieFlungSound.gd" id="35_xt52y"]
 [ext_resource type="PackedScene" uid="uid://bp8qeugxop532" path="res://Assets/Buttons/button_click_Sound.tscn" id="36_3mchy"]
+[ext_resource type="Texture2D" uid="uid://dq6gdm6413vtx" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/jugglin2.png" id="36_cdq6u"]
 [ext_resource type="AudioStream" uid="uid://dypfdpyigi65e" path="res://Assets/Sounds/Clowny/266535__gcastanera__smashed-bug.wav" id="37_aucum"]
 [ext_resource type="Script" path="res://Scripts/Sound/SimpleNodePlay.gd" id="37_ns55f"]
+[ext_resource type="Texture2D" uid="uid://b0bq0lvsryur4" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/jugglin1.png" id="37_wd7qs"]
+[ext_resource type="Texture2D" uid="uid://bry2gxo1aufp5" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/jugglin2.png" id="38_366no"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="38_v2qeq"]
+[ext_resource type="Texture2D" uid="uid://dcf61d05mhbas" path="res://Assets/Clowny/Clowny Circus/naked/top hat/jugglin1.png" id="39_7n80i"]
 [ext_resource type="AudioStream" uid="uid://cj6gbklo5sxt3" path="res://Assets/Sounds/Clowny/445974__breviceps__cartoon-slurp.wav" id="39_yf2b7"]
+[ext_resource type="Texture2D" uid="uid://beoxo4jmkc4rg" path="res://Assets/Clowny/Clowny Circus/naked/top hat/jugglin2.png" id="40_fq3hy"]
+[ext_resource type="Texture2D" uid="uid://ddqnnt0an7xg5" path="res://Assets/Clowny/Clowny Circus/swimsuit/jugglin1.png" id="41_4vwrg"]
+[ext_resource type="Texture2D" uid="uid://dhamfsluntvvm" path="res://Assets/Clowny/Clowny Circus/swimsuit/jugglin2.png" id="42_6w1dp"]
+[ext_resource type="Texture2D" uid="uid://pj587262eoar" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/jugglin1.png" id="43_wepir"]
+[ext_resource type="Texture2D" uid="uid://b2dwj1prbowpu" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/jugglin2.png" id="44_0joie"]
+[ext_resource type="Texture2D" uid="uid://chkrfde6gg70q" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/jugglin1.png" id="45_atlwf"]
+[ext_resource type="Texture2D" uid="uid://d72dmpdfkuaf" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/jugglin2.png" id="46_bsutp"]
+[ext_resource type="Texture2D" uid="uid://5rb77a5vov38" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/jugglin1.png" id="47_ktsgx"]
+[ext_resource type="Texture2D" uid="uid://breqggqnjp6br" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/jugglin2.png" id="48_706yk"]
+[ext_resource type="Texture2D" uid="uid://c4jwnvr8d3q48" path="res://Assets/Clowny/Clowny Circus/tweet/jugglin1.png" id="49_2emdg"]
+[ext_resource type="Texture2D" uid="uid://drhx2u7dwksqx" path="res://Assets/Clowny/Clowny Circus/tweet/jugglin2.png" id="50_5sh51"]
+[ext_resource type="Texture2D" uid="uid://cev5tghyhkrx" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/jugglin1.png" id="51_hqbml"]
+[ext_resource type="Texture2D" uid="uid://bhc5txmlxsuk4" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/jugglin2.png" id="52_20r8l"]
+[ext_resource type="Texture2D" uid="uid://cx6dhfb170r7f" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/jugglin1.png" id="53_8ekas"]
+[ext_resource type="Texture2D" uid="uid://dv0ectls17sa5" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/jugglin2.png" id="54_6jh8c"]
+[ext_resource type="Texture2D" uid="uid://pipys5utvn1" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/jugglin1.png" id="55_8w6d5"]
+[ext_resource type="Texture2D" uid="uid://dq3viyponj441" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/jugglin2.png" id="56_llj6g"]
+[ext_resource type="Texture2D" uid="uid://bmpk0xq08riu2" path="res://Assets/Clowny/Clowny Circus/clown vest/wheel1.png" id="60_kbjpw"]
+[ext_resource type="Texture2D" uid="uid://cv0j8xbpoqa5w" path="res://Assets/Clowny/Clowny Circus/clown vest/wheel2.png" id="61_aorku"]
+[ext_resource type="Texture2D" uid="uid://b0dpiko3hq5wl" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/wheel1.png" id="62_eb5bb"]
+[ext_resource type="Texture2D" uid="uid://bu8ft24g4hsbc" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/wheel2.png" id="63_12v16"]
+[ext_resource type="Texture2D" uid="uid://c0yevbrks5kut" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/wheel1.png" id="64_hmc0k"]
+[ext_resource type="Texture2D" uid="uid://cktuib4gqkap4" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/wheel2.png" id="65_qxts2"]
+[ext_resource type="Texture2D" uid="uid://bqmspi06kn5hm" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/wheel1.png" id="66_osj3x"]
+[ext_resource type="Texture2D" uid="uid://c5tmr0kwavoyk" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/wheel2.png" id="67_ksi0j"]
+[ext_resource type="Texture2D" uid="uid://bn5h7pv5e88uc" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/wheel1.png" id="70_koq28"]
+[ext_resource type="Texture2D" uid="uid://b3kxbq37ab1b7" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/wheel2.png" id="71_75gaj"]
+[ext_resource type="Texture2D" uid="uid://bg80is1ui11w0" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/wheel1.png" id="72_kij5q"]
+[ext_resource type="Texture2D" uid="uid://b8kd78shtw4w8" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/wheel2.png" id="73_dgpn6"]
+[ext_resource type="Texture2D" uid="uid://de7ne68ue6k6k" path="res://Assets/Clowny/Clowny Circus/naked/top hat/wheel1.png" id="74_8t3q8"]
+[ext_resource type="Texture2D" uid="uid://dyhbafv8uvhdp" path="res://Assets/Clowny/Clowny Circus/naked/top hat/wheel2.png" id="75_1ruxa"]
+[ext_resource type="Texture2D" uid="uid://82hnkhdmrgr2" path="res://Assets/Clowny/Clowny Circus/swimsuit/wheel1.png" id="76_dxi1h"]
+[ext_resource type="Texture2D" uid="uid://bytkieuf071ck" path="res://Assets/Clowny/Clowny Circus/swimsuit/wheel2.png" id="77_1fuhy"]
+[ext_resource type="Texture2D" uid="uid://syrqe5oqoyg6" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/wheel1.png" id="78_6h73t"]
+[ext_resource type="Texture2D" uid="uid://clte8m247a062" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/wheel2.png" id="79_mhnab"]
+[ext_resource type="Texture2D" uid="uid://ccefx07n1s2or" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/wheel1.png" id="80_w3otc"]
+[ext_resource type="Texture2D" uid="uid://bvv1mgqhot00u" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/wheel2.png" id="81_vm0lh"]
+[ext_resource type="Texture2D" uid="uid://byueo204xhl7o" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/wheel1.png" id="82_ac64b"]
+[ext_resource type="Texture2D" uid="uid://c2l6waxe027pl" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/wheel2.png" id="83_bmax1"]
+[ext_resource type="Texture2D" uid="uid://be1nsj388kufe" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/wheel1.png" id="84_l40jf"]
+[ext_resource type="Texture2D" uid="uid://dvokg1x4lpdcm" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/wheel2.png" id="85_jlb50"]
+[ext_resource type="Texture2D" uid="uid://1gnli55xlmwv" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/wheel1.png" id="86_f52i6"]
+[ext_resource type="Texture2D" uid="uid://d2cbqv4gw6rhp" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/wheel2.png" id="87_wdpt2"]
+[ext_resource type="Texture2D" uid="uid://d03xh4mn5vrjs" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/wheel1.png" id="88_7vjl4"]
+[ext_resource type="Texture2D" uid="uid://cjqqlvkf31873" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/wheel2.png" id="89_31ynm"]
+[ext_resource type="Texture2D" uid="uid://djaahv5snqtgq" path="res://Assets/Clowny/Clowny Circus/clown vest/pie1.png" id="92_g25jv"]
+[ext_resource type="Texture2D" uid="uid://cikmh37lnpo7x" path="res://Assets/Clowny/Clowny Circus/clown vest/pie2.png" id="93_xtwm3"]
+[ext_resource type="Texture2D" uid="uid://ccvd3fuf5tn0i" path="res://Assets/Clowny/Clowny Circus/clown vest/pie3.png" id="94_yopp7"]
+[ext_resource type="Texture2D" uid="uid://xmufupxndmme" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/pie1.png" id="95_6ompp"]
+[ext_resource type="Texture2D" uid="uid://b5wll8cr2t6bb" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/pie2.png" id="96_fd0j0"]
+[ext_resource type="Texture2D" uid="uid://b3631db50ybmw" path="res://Assets/Clowny/Clowny Circus/clown vest/queen hat/pie3.png" id="97_6lkxu"]
+[ext_resource type="Texture2D" uid="uid://c67cseq4vhbdd" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/pie1.png" id="98_pkeh1"]
+[ext_resource type="Texture2D" uid="uid://beoujypj5odo3" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/pie2.png" id="99_68ul2"]
+[ext_resource type="Texture2D" uid="uid://myl6oybstump" path="res://Assets/Clowny/Clowny Circus/clown vest/stinky cowboy/pie3.png" id="100_wgveb"]
+[ext_resource type="Texture2D" uid="uid://b1k38trg8u1ij" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/pie1.png" id="101_4jhq1"]
+[ext_resource type="Texture2D" uid="uid://bqrds71264q8m" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/pie2.png" id="102_eeslb"]
+[ext_resource type="Texture2D" uid="uid://cpfuog8f4el5y" path="res://Assets/Clowny/Clowny Circus/clown vest/top hat/pie3.png" id="103_l1xkq"]
+[ext_resource type="Texture2D" uid="uid://b6ennmaif3gvy" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/pie1.png" id="107_80va5"]
+[ext_resource type="Texture2D" uid="uid://p6db0eyoy0qg" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/pie2.png" id="108_8p0b3"]
+[ext_resource type="Texture2D" uid="uid://dupxt2pe2yxfr" path="res://Assets/Clowny/Clowny Circus/naked/queen hat/pie3.png" id="109_yu1t6"]
+[ext_resource type="Texture2D" uid="uid://ucr7mrlsvv08" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/pie1.png" id="110_7fvgh"]
+[ext_resource type="Texture2D" uid="uid://kacyxgwjpwju" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/pie2.png" id="111_ef8ve"]
+[ext_resource type="Texture2D" uid="uid://d6078fj8xx0s" path="res://Assets/Clowny/Clowny Circus/naked/stinky cowboy/pie3.png" id="112_lufod"]
+[ext_resource type="Texture2D" uid="uid://ds7ab7cvhtsbp" path="res://Assets/Clowny/Clowny Circus/naked/top hat/pie1.png" id="113_dhmnp"]
+[ext_resource type="Texture2D" uid="uid://ctuyidrp3g5xf" path="res://Assets/Clowny/Clowny Circus/naked/top hat/pie2.png" id="114_p4ba4"]
+[ext_resource type="Texture2D" uid="uid://ctjpe5f42sjmt" path="res://Assets/Clowny/Clowny Circus/naked/top hat/pie3.png" id="115_313hb"]
+[ext_resource type="Texture2D" uid="uid://bl0v7vs2uwij3" path="res://Assets/Clowny/Clowny Circus/swimsuit/pie1.png" id="116_dfw1k"]
+[ext_resource type="Texture2D" uid="uid://drew5gfq68677" path="res://Assets/Clowny/Clowny Circus/swimsuit/pie2.png" id="117_torqc"]
+[ext_resource type="Texture2D" uid="uid://dag5e5p6csheh" path="res://Assets/Clowny/Clowny Circus/swimsuit/pie3.png" id="118_4dhqf"]
+[ext_resource type="Texture2D" uid="uid://bka4qvy8v6ucq" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/pie1.png" id="119_sy88m"]
+[ext_resource type="Texture2D" uid="uid://bm4lkurss0dry" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/pie2.png" id="120_uvj43"]
+[ext_resource type="Texture2D" uid="uid://bn6pm6sxvk5l8" path="res://Assets/Clowny/Clowny Circus/swimsuit/queen hat/pie3.png" id="121_57jy2"]
+[ext_resource type="Texture2D" uid="uid://dyoqup1tqlejp" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/pie1.png" id="122_ssv3c"]
+[ext_resource type="Texture2D" uid="uid://ccwocum721fpf" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/pie2.png" id="123_dcgfn"]
+[ext_resource type="Texture2D" uid="uid://b5lic8a5tjfks" path="res://Assets/Clowny/Clowny Circus/swimsuit/stinky cowboy/pie3.png" id="124_s7ndu"]
+[ext_resource type="Texture2D" uid="uid://bcho5n6c376x" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/pie1.png" id="125_xn8tl"]
+[ext_resource type="Texture2D" uid="uid://sdv673jxfnbf" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/pie2.png" id="126_qkjkm"]
+[ext_resource type="Texture2D" uid="uid://bs5fdpejshn4x" path="res://Assets/Clowny/Clowny Circus/swimsuit/top hat/pie3.png" id="127_0brdg"]
+[ext_resource type="Texture2D" uid="uid://c1l3kla2c4x46" path="res://Assets/Clowny/Clowny Circus/tweet/pie1.png" id="128_mee6x"]
+[ext_resource type="Texture2D" uid="uid://dg480tjy5ajed" path="res://Assets/Clowny/Clowny Circus/tweet/pie2.png" id="129_6v275"]
+[ext_resource type="Texture2D" uid="uid://de8bdltxq034k" path="res://Assets/Clowny/Clowny Circus/tweet/pie3.png" id="130_82med"]
+[ext_resource type="Texture2D" uid="uid://bf8qd5wjuymi6" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/pie1.png" id="131_4img4"]
+[ext_resource type="Texture2D" uid="uid://b7blc23t758bi" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/pie2.png" id="132_fvyb2"]
+[ext_resource type="Texture2D" uid="uid://b1xdmaqg2bsv6" path="res://Assets/Clowny/Clowny Circus/tweet/queen hat/pie3.png" id="133_mxnnv"]
+[ext_resource type="Texture2D" uid="uid://b0bf47jsws2av" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/pie1.png" id="134_53dc4"]
+[ext_resource type="Texture2D" uid="uid://bmdroc0spu1vv" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/pie2.png" id="135_fh6hn"]
+[ext_resource type="Texture2D" uid="uid://cwhk2csgn7dwj" path="res://Assets/Clowny/Clowny Circus/tweet/stinky cowboy/pie3.png" id="136_5hu28"]
+[ext_resource type="Texture2D" uid="uid://b601mvu0n0pjo" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/pie1.png" id="137_3s6rf"]
+[ext_resource type="Texture2D" uid="uid://xksp58lif5fn" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/pie2.png" id="138_f6dqu"]
+[ext_resource type="Texture2D" uid="uid://sc50bwq2j4y4" path="res://Assets/Clowny/Clowny Circus/tweet/top hat/pie3.png" id="139_ux7lf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("22_bih2t")
+"texture": ExtResource("25_tulsq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_8rpmd")
+"texture": ExtResource("26_wsbnd")
 }],
 "loop": true,
-"name": &"default",
+"name": &"clownvest_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_r8wbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_tyqa6")
+}],
+"loop": true,
+"name": &"clownvest_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_lge5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ecjxd")
+}],
+"loop": true,
+"name": &"clownvest_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_efkvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ymvci")
+}],
+"loop": true,
+"name": &"clownvest_tophat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_pxhk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_hgx83")
+}],
+"loop": true,
+"name": &"naked_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_o2rcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_cdq6u")
+}],
+"loop": true,
+"name": &"naked_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_wd7qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_366no")
+}],
+"loop": true,
+"name": &"naked_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_7n80i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_fq3hy")
+}],
+"loop": true,
+"name": &"naked_tophat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_4vwrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_6w1dp")
+}],
+"loop": true,
+"name": &"swimsuit_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_wepir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_0joie")
+}],
+"loop": true,
+"name": &"swimsuit_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_atlwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_bsutp")
+}],
+"loop": true,
+"name": &"swimsuit_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_ktsgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_706yk")
+}],
+"loop": true,
+"name": &"swimsuit_tophat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_2emdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_5sh51")
+}],
+"loop": true,
+"name": &"tweed_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("51_hqbml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_20r8l")
+}],
+"loop": true,
+"name": &"tweed_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_8ekas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_6jh8c")
+}],
+"loop": true,
+"name": &"tweed_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("55_8w6d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_llj6g")
+}],
+"loop": true,
+"name": &"tweed_tophat",
 "speed": 5.0
 }]
 
@@ -72,18 +340,239 @@ point_count = 11
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("60_kbjpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_aorku")
+}],
+"loop": true,
+"name": &"clownvest_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("62_eb5bb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_12v16")
+}],
+"loop": true,
+"name": &"clownvest_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("64_hmc0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_qxts2")
+}],
+"loop": true,
+"name": &"clownvest_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("66_osj3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_ksi0j")
+}],
+"loop": true,
+"name": &"clownvest_tophat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("27_hln7s")
 }, {
 "duration": 1.0,
 "texture": ExtResource("28_e3emj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"naked_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("70_koq28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_75gaj")
+}],
+"loop": true,
+"name": &"naked_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("72_kij5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_dgpn6")
+}],
+"loop": true,
+"name": &"naked_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_8t3q8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_1ruxa")
+}],
+"loop": true,
+"name": &"naked_tophat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("76_dxi1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_1fuhy")
+}],
+"loop": true,
+"name": &"swimsuit_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("78_6h73t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_mhnab")
+}],
+"loop": true,
+"name": &"swimsuit_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("80_w3otc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_vm0lh")
+}],
+"loop": true,
+"name": &"swimsuit_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("82_ac64b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_bmax1")
+}],
+"loop": true,
+"name": &"swimsuit_tophat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("84_l40jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_jlb50")
+}],
+"loop": true,
+"name": &"tweed_naked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("86_f52i6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_wdpt2")
+}],
+"loop": true,
+"name": &"tweed_queenhat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("88_7vjl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_31ynm")
+}],
+"loop": true,
+"name": &"tweed_stinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("84_l40jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_jlb50")
+}],
+"loop": true,
+"name": &"tweed_tophat",
 "speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cvny5"]
 animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("92_g25jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_xtwm3")
+}, {
+"duration": 4.0,
+"texture": ExtResource("94_yopp7")
+}],
+"loop": false,
+"name": &"clownvest_naked",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("95_6ompp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_fd0j0")
+}, {
+"duration": 4.0,
+"texture": ExtResource("97_6lkxu")
+}],
+"loop": false,
+"name": &"clownvest_queenhat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("98_pkeh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_68ul2")
+}, {
+"duration": 4.0,
+"texture": ExtResource("100_wgveb")
+}],
+"loop": false,
+"name": &"clownvest_stinky",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("101_4jhq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_eeslb")
+}, {
+"duration": 4.0,
+"texture": ExtResource("103_l1xkq")
+}],
+"loop": false,
+"name": &"clownvest_tophat",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 2.0,
 "texture": ExtResource("30_58fkr")
@@ -95,7 +584,161 @@ animations = [{
 "texture": ExtResource("32_xwl8a")
 }],
 "loop": false,
-"name": &"default",
+"name": &"naked_naked",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("107_80va5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_8p0b3")
+}, {
+"duration": 4.0,
+"texture": ExtResource("109_yu1t6")
+}],
+"loop": false,
+"name": &"naked_queenhat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("110_7fvgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_ef8ve")
+}, {
+"duration": 4.0,
+"texture": ExtResource("112_lufod")
+}],
+"loop": false,
+"name": &"naked_stinky",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("113_dhmnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_p4ba4")
+}, {
+"duration": 4.0,
+"texture": ExtResource("115_313hb")
+}],
+"loop": false,
+"name": &"naked_tophat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("116_dfw1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_torqc")
+}, {
+"duration": 4.0,
+"texture": ExtResource("118_4dhqf")
+}],
+"loop": false,
+"name": &"swimsuit_naked",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("119_sy88m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_uvj43")
+}, {
+"duration": 4.0,
+"texture": ExtResource("121_57jy2")
+}],
+"loop": false,
+"name": &"swimsuit_queenhat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("122_ssv3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_dcgfn")
+}, {
+"duration": 4.0,
+"texture": ExtResource("124_s7ndu")
+}],
+"loop": false,
+"name": &"swimsuit_stinky",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("125_xn8tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_qkjkm")
+}, {
+"duration": 4.0,
+"texture": ExtResource("127_0brdg")
+}],
+"loop": false,
+"name": &"swimsuit_tophat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("128_mee6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_6v275")
+}, {
+"duration": 4.0,
+"texture": ExtResource("130_82med")
+}],
+"loop": false,
+"name": &"tweed_naked",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("131_4img4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_fvyb2")
+}, {
+"duration": 4.0,
+"texture": ExtResource("133_mxnnv")
+}],
+"loop": false,
+"name": &"tweed_queenhat",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("134_53dc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_fh6hn")
+}, {
+"duration": 4.0,
+"texture": ExtResource("136_5hu28")
+}],
+"loop": false,
+"name": &"tweed_stinky",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("137_3s6rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_f6dqu")
+}, {
+"duration": 4.0,
+"texture": ExtResource("139_ux7lf")
+}],
+"loop": false,
+"name": &"tweed_tophat",
 "speed": 2.0
 }]
 
@@ -190,10 +833,10 @@ script = ExtResource("22_vo708")
 ball = ExtResource("23_ptw8d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Acts/Juggling"]
-position = Vector2(419, 424)
+position = Vector2(532, 430)
 scale = Vector2(0.128778, 0.128396)
 sprite_frames = SubResource("SpriteFrames_8kxqx")
-autoplay = "default"
+animation = &"clownvest_queenhat"
 
 [node name="Path" type="Path2D" parent="Acts/Juggling"]
 curve = SubResource("Curve2D_bau0j")
@@ -215,7 +858,8 @@ script = ExtResource("27_fhb3v")
 position = Vector2(8.00006, -185)
 scale = Vector2(0.13116, 0.13116)
 sprite_frames = SubResource("SpriteFrames_v7jnb")
-autoplay = "default"
+animation = &"tweed_tophat"
+autoplay = "naked_naked"
 
 [node name="Squeky Wheel" type="AudioStreamPlayer" parent="Acts/Unicycle/AnimatedSprite2D"]
 stream = ExtResource("30_6gqem")
@@ -229,6 +873,7 @@ script = ExtResource("30_biymb")
 
 [node name="Pied" type="AnimatedSprite2D" parent="Acts/Pie"]
 sprite_frames = SubResource("SpriteFrames_cvny5")
+animation = &"clownvest_naked"
 
 [node name="Pie" type="Path2D" parent="Acts/Pie"]
 curve = SubResource("Curve2D_wyk1e")
@@ -324,6 +969,9 @@ script = ExtResource("38_v2qeq")
 [connection signal="flashes" from="." to="Background/Flashes/Flash6" method="set_likelyhood"]
 [connection signal="start" from="." to="Audio/BackgroundMusic" method="play_song"]
 [connection signal="start" from="." to="Audio/CrowdBackNoise" method="_on_finished"]
+[connection signal="wear" from="." to="Acts/Juggling" method="_on_circus_wear"]
+[connection signal="wear" from="." to="Acts/Unicycle" method="_on_circus_wear"]
+[connection signal="wear" from="." to="Acts/Pie" method="_on_circus_wear"]
 [connection signal="finished" from="Audio/BackgroundMusic" to="Audio/BackgroundMusic" method="_on_finished"]
 [connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]
 [connection signal="do_score" from="Acts/Juggling" to="." method="basic_scoring"]

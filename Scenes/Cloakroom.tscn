@@ -72,7 +72,7 @@ texture = ExtResource("5_1hl8t")
 input_pickable = true
 script = ExtResource("15_t06te")
 type = 1
-id = "Clown Vest"
+id = "clownvest"
 
 [node name="Hanger" type="Sprite2D" parent="Room/Suits/ClownVest"]
 texture = ExtResource("6_vj5cl")
@@ -90,7 +90,7 @@ position = Vector2(-722.038, 32.1869)
 input_pickable = true
 script = ExtResource("15_t06te")
 type = 1
-id = "Tweed"
+id = "tweed"
 
 [node name="Hanger" type="Sprite2D" parent="Room/Suits/Tweed"]
 texture = ExtResource("8_es2fw")
@@ -108,7 +108,7 @@ position = Vector2(-818.617, 114.968)
 input_pickable = true
 script = ExtResource("15_t06te")
 type = 1
-id = "Swimsuit"
+id = "swimsuit"
 
 [node name="Hanger" type="Sprite2D" parent="Room/Suits/SwimSuit"]
 texture = ExtResource("7_oyu24")
@@ -135,7 +135,7 @@ texture = ExtResource("9_3g20n")
 [node name="QueenHat" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
-id = "Queen Hat"
+id = "queenhat"
 
 [node name="Sprite" type="Sprite2D" parent="Room/Hats/QueenHat"]
 texture = ExtResource("10_r08ox")
@@ -150,7 +150,7 @@ polygon = PackedVector2Array(826.389, 1093.75, 1121.53, 1003.47, 1114.58, 1427.0
 [node name="StinkyCowboy" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
-id = "Stinky Cowboy"
+id = "stinky"
 
 [node name="Sprite" type="Sprite2D" parent="Room/Hats/StinkyCowboy"]
 texture = ExtResource("12_uhqi4")
@@ -164,7 +164,7 @@ position = Vector2(-1462.47, -321.934)
 [node name="TopHat" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
-id = "Top Hat"
+id = "tophat"
 
 [node name="Sprite" type="Sprite2D" parent="Room/Hats/TopHat"]
 texture = ExtResource("14_q0nkj")

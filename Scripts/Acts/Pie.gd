@@ -4,7 +4,9 @@ signal pie_has_hit()
 signal pie_has_flung()
 signal pie_fling_finished()
 signal do_score(count: int)
+
 var pie_is_flying: bool = false
+var selected_outfit: String = 'naked_naked'
 
 func fling_da_pie():
 	pie_has_flung.emit()
@@ -29,8 +31,11 @@ func splat():
 	pie_has_hit.emit()
 	$Pied.visible = true
 	$Pie/Follow/Sprite.visible = false
-	$Pied.play('default')
+	$Pied.play(selected_outfit)
 	do_score.emit(200)
 
 func _on_pied_animation_finished():
 	pie_fling_finished.emit()
+
+func _on_circus_wear(outfit):
+	selected_outfit = outfit

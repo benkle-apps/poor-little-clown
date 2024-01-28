@@ -4,13 +4,20 @@ signal flashes(new_likelyhood:int)
 signal audience_excited(excited:bool)
 signal audience_very_excited(very_excited:bool)
 signal start()
+signal stop()
+signal wear(outfit: String)
 
 var score: int = 0
 
-func do_start():
+func do_start(outfit: String):
+	wear.emit(outfit)
 	start.emit()
 	flashes.emit(1)
 	$Descore.start()
+	
+func do_stop():
+	$Descore.stop()
+	stop.emit()
 
 func basic_scoring(count: int):
 	score += count
