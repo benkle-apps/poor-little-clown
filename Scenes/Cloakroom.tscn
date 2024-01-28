@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://kq6l4lsxula7"]
+[gd_scene load_steps=50 format=3 uid="uid://kq6l4lsxula7"]
 
 [ext_resource type="Script" path="res://Scripts/Cloakroom/Cloakroom.gd" id="1_6hmxn"]
 [ext_resource type="Texture2D" uid="uid://dyrfmgdkjheq" path="res://Assets/Backgrounds/Cloakroom/Background.png" id="2_nkpyl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0yg8fj7tluxn" path="res://Assets/Backgrounds/Cloakroom/hanger clown vest.png" id="6_vj5cl"]
 [ext_resource type="Texture2D" uid="uid://bl5wfk8cakjwd" path="res://Assets/Backgrounds/Cloakroom/Hanger Swimsuit.png" id="7_oyu24"]
 [ext_resource type="Texture2D" uid="uid://dmfcwogmvirvw" path="res://Assets/Backgrounds/Cloakroom/hanger tweet.png" id="8_es2fw"]
+[ext_resource type="PackedScene" uid="uid://bonrdqp32yhvc" path="res://Assets/Effects/hover_effect.tscn" id="8_kt7ba"]
 [ext_resource type="Texture2D" uid="uid://l3inv5tlqpd" path="res://Assets/Backgrounds/Cloakroom/onewheel.png" id="9_3g20n"]
 [ext_resource type="Texture2D" uid="uid://bmiryxhoklt1m" path="res://Assets/Backgrounds/Cloakroom/Queenhat.png" id="10_r08ox"]
 [ext_resource type="Texture2D" uid="uid://dp01tui3df21g" path="res://Assets/Backgrounds/Cloakroom/rednose.png" id="11_gmwxk"]
@@ -46,6 +47,8 @@
 [ext_resource type="Script" path="res://Scripts/Sound/CloakroomBackgroundAndLeaving.gd" id="44_b8xvj"]
 [ext_resource type="AudioStream" uid="uid://brh1xhj7y15vr" path="res://Assets/Sounds/Circus/Audience/386764__ken788__crowd_applause short.wav" id="45_b3eml"]
 [ext_resource type="Texture2D" uid="uid://ctdv2accnjq7n" path="res://Assets/Buttons/Artboard1.png" id="46_dorgs"]
+[ext_resource type="AudioStream" uid="uid://b2133fw6qs28b" path="res://Assets/Sounds/UI/243440__reitanna__click-on.wav" id="48_2qohd"]
+[ext_resource type="Script" path="res://Scripts/Sound/UI/ButtonClick.gd" id="48_e1p8m"]
 
 [node name="Cloakroom" type="Node2D"]
 scale = Vector2(0.288, 0.288)
@@ -81,6 +84,9 @@ texture = ExtResource("3_3od1y")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Suits/ClownVest"]
 polygon = PackedVector2Array(-1030.17, -285.142, -832.413, -390.918, -630.059, -280.543, -634.658, 147.161, -699.043, 220.745, -846.21, 252.937, -979.58, 206.948, -1030.17, 156.359, -1048.57, -165.569)
 
+[node name="Hoover Effect" parent="Room/Suits/ClownVest" instance=ExtResource("8_kt7ba")]
+position = Vector2(-722.038, 32.1869)
+
 [node name="Tweed" type="CharacterBody2D" parent="Room/Suits"]
 input_pickable = true
 script = ExtResource("15_t06te")
@@ -95,6 +101,9 @@ texture = ExtResource("15_6j4nv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Suits/Tweed"]
 polygon = PackedVector2Array(-901.398, -381.72, -579.47, -142.574, -570.272, 505.881, -749.632, 478.287, -726.637, 413.901, -883.002, 473.688, -1020.97, 473.688, -1099.15, 418.5, -1089.96, -289.741)
+
+[node name="Hoover Effect" parent="Room/Suits/Tweed" instance=ExtResource("8_kt7ba")]
+position = Vector2(-818.617, 114.968)
 
 [node name="SwimSuit" type="CharacterBody2D" parent="Room/Suits"]
 input_pickable = true
@@ -116,6 +125,9 @@ stream = ExtResource("12_qwsmy")
 volume_db = 5.515
 script = ExtResource("12_0mira")
 
+[node name="Hoover Effect" parent="Room/Suits/SwimSuit" instance=ExtResource("8_kt7ba")]
+position = Vector2(-1025.57, 82.7755)
+
 [node name="Unicycle" type="Sprite2D" parent="Room"]
 texture = ExtResource("9_3g20n")
 
@@ -134,6 +146,8 @@ position = Vector2(-2649.01, -1480.87)
 scale = Vector2(1.3245, 1.3245)
 polygon = PackedVector2Array(826.389, 1093.75, 1121.53, 1003.47, 1114.58, 1427.08, 815.972, 1503.47)
 
+[node name="Hoover Effect" parent="Room/Hats/QueenHat" instance=ExtResource("8_kt7ba")]
+
 [node name="StinkyCowboy" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
@@ -145,6 +159,9 @@ texture = ExtResource("12_uhqi4")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Hats/StinkyCowboy"]
 polygon = PackedVector2Array(-1549.85, -740.44, -1163.54, -791.029, -1145.14, -271.345, -1117.55, -234.553, -1158.94, -206.96, -1568.25, -110.381)
 
+[node name="Hoover Effect" parent="Room/Hats/StinkyCowboy" instance=ExtResource("8_kt7ba")]
+position = Vector2(-1462.47, -321.934)
+
 [node name="TopHat" type="CharacterBody2D" parent="Room/Hats"]
 input_pickable = true
 script = ExtResource("15_t06te")
@@ -155,6 +172,9 @@ texture = ExtResource("14_q0nkj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Hats/TopHat"]
 polygon = PackedVector2Array(-1568.25, 607.064, -1186.53, 492.09, -1191.13, 1126.75, -1582.05, 1310.71)
+
+[node name="Hoover Effect" parent="Room/Hats/TopHat" instance=ExtResource("8_kt7ba")]
+position = Vector2(-1444.08, 850.804)
 
 [node name="Wig" type="Sprite2D" parent="Room"]
 texture = ExtResource("16_kvnwf")
@@ -263,27 +283,45 @@ texture = ExtResource("46_dorgs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Button"]
 polygon = PackedVector2Array(2576.39, 1975.69, 2565.97, 2173.61, 3447.92, 2170.14, 3447.92, 1954.86)
 
+[node name="ButtonClick" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("48_2qohd")
+volume_db = 6.303
+script = ExtResource("48_e1p8m")
+
 [connection signal="accesory_clicked" from="." to="ChangeCloths" method="accesory_clicked"]
 [connection signal="stage_ready" from="." to="BackgroundMusic" method="stage_ready"]
 [connection signal="accessory_clicked" from="Room/Suits/ClownVest" to="." method="_on_suit_clicked"]
 [connection signal="accessory_clicked" from="Room/Suits/ClownVest" to="Clowny" method="_on_suit_clicked"]
 [connection signal="input_event" from="Room/Suits/ClownVest" to="Room/Suits/ClownVest" method="_on_input_event"]
+[connection signal="mouse_entered" from="Room/Suits/ClownVest" to="Room/Suits/ClownVest/Hoover Effect" method="mouse_entered"]
+[connection signal="mouse_exited" from="Room/Suits/ClownVest" to="Room/Suits/ClownVest/Hoover Effect" method="mouse_exited"]
 [connection signal="accessory_clicked" from="Room/Suits/Tweed" to="." method="_on_suit_clicked"]
 [connection signal="accessory_clicked" from="Room/Suits/Tweed" to="Clowny" method="_on_suit_clicked"]
 [connection signal="input_event" from="Room/Suits/Tweed" to="Room/Suits/Tweed" method="_on_input_event"]
+[connection signal="mouse_entered" from="Room/Suits/Tweed" to="Room/Suits/Tweed/Hoover Effect" method="mouse_entered"]
+[connection signal="mouse_exited" from="Room/Suits/Tweed" to="Room/Suits/Tweed/Hoover Effect" method="mouse_exited"]
 [connection signal="accessory_clicked" from="Room/Suits/SwimSuit" to="." method="_on_suit_clicked"]
 [connection signal="accessory_clicked" from="Room/Suits/SwimSuit" to="Room/Suits/SwimSuit/Sexy" method="accessory_clicked"]
 [connection signal="accessory_clicked" from="Room/Suits/SwimSuit" to="Clowny" method="_on_suit_clicked"]
 [connection signal="input_event" from="Room/Suits/SwimSuit" to="Room/Suits/SwimSuit" method="_on_input_event"]
+[connection signal="mouse_entered" from="Room/Suits/SwimSuit" to="Room/Suits/SwimSuit/Hoover Effect" method="mouse_entered"]
+[connection signal="mouse_exited" from="Room/Suits/SwimSuit" to="Room/Suits/SwimSuit/Hoover Effect" method="mouse_exited"]
 [connection signal="accessory_clicked" from="Room/Hats/QueenHat" to="." method="_on_hat_clicked"]
 [connection signal="accessory_clicked" from="Room/Hats/QueenHat" to="Clowny" method="_on_hat_clicked"]
 [connection signal="input_event" from="Room/Hats/QueenHat" to="Room/Hats/QueenHat" method="_on_input_event"]
+[connection signal="mouse_entered" from="Room/Hats/QueenHat" to="Room/Hats/QueenHat/Hoover Effect" method="mouse_entered"]
+[connection signal="mouse_exited" from="Room/Hats/QueenHat" to="Room/Hats/QueenHat/Hoover Effect" method="mouse_exited"]
 [connection signal="accessory_clicked" from="Room/Hats/StinkyCowboy" to="." method="_on_hat_clicked"]
 [connection signal="accessory_clicked" from="Room/Hats/StinkyCowboy" to="Clowny" method="_on_hat_clicked"]
 [connection signal="input_event" from="Room/Hats/StinkyCowboy" to="Room/Hats/StinkyCowboy" method="_on_input_event"]
+[connection signal="mouse_entered" from="Room/Hats/StinkyCowboy" to="Room/Hats/StinkyCowboy/Hoover Effect" method="mouse_entered"]
+[connection signal="mouse_exited" from="Room/Hats/StinkyCowboy" to="Room/Hats/StinkyCowboy/Hoover Effect" method="mouse_exited"]
 [connection signal="accessory_clicked" from="Room/Hats/TopHat" to="." method="_on_hat_clicked"]
 [connection signal="accessory_clicked" from="Room/Hats/TopHat" to="Clowny" method="_on_hat_clicked"]
 [connection signal="input_event" from="Room/Hats/TopHat" to="Room/Hats/TopHat" method="_on_input_event"]
+[connection signal="mouse_entered" from="Room/Hats/TopHat" to="Room/Hats/TopHat/Hoover Effect" method="mouse_entered"]
+[connection signal="mouse_exited" from="Room/Hats/TopHat" to="Room/Hats/TopHat/Hoover Effect" method="mouse_exited"]
 [connection signal="timeout" from="Clowny/Body/Timer" to="Clowny" method="blink"]
 [connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]
 [connection signal="input_event" from="Button" to="." method="_on_go_button"]
+[connection signal="input_event" from="Button" to="Button/ButtonClick" method="_on_button_input_event"]

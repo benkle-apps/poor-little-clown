@@ -1,6 +1,7 @@
 extends Node2D
 
 signal clicked(ball: Node2D)
+signal droped()
 
 var dropped: bool = false
 var drop_direction: Vector2
@@ -21,6 +22,7 @@ func _on_ball_input_event(_viewport, event, _shape_idx):
 		clicked.emit(self)
 		
 func drop():
+	droped.emit()
 	drop_direction = position.direction_to(Vector2(
 		randi() % int(get_viewport_rect().size.x),
 		randi() % int(get_viewport_rect().size.y)
