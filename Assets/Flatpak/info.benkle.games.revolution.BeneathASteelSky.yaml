@@ -1,0 +1,42 @@
+---
+id: info.benkle.games.revolution.BeneathASteelSky
+command: bass.sh
+runtime: org.freedesktop.Platform
+sdk: org.freedesktop.Sdk
+runtime-version: '22.08'
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=dri
+modules:
+  - name: bass
+    buildsystem: simple
+    build-commands:
+      - install -D -m755 manual.pdf /app/share/bass/manual.pdf
+      - install -D -m755 sky.cpt /app/share/bass/sky.cpt
+      - install -D -m755 sky.dnr /app/share/bass/sky.dnr
+      - install -D -m755 sky.dsk /app/share/bass/sky.dsk
+      - install -D -m755 bass.sh /app/bin/bass.sh
+    sources:
+      - type: dir
+        path: bass
+    modules:
+      - name: scummvm
+        buildsystem: autotools
+        config-opts:
+          - --disable-all-engines
+          - --enable-engine-static=sky
+        sources:
+          - type: archive
+            #url: https://downloads.scummvm.org/frs/scummvm/2.6.0/scummvm-2.6.0.tar.gz
+            path: ../libraries/scummvm/2.6.0/scummvm-2.6.0.tar.gz
+            md5: 61c95ca0b7776d4c5ef86bab238e2e3b
+      - name: metainfo
+        buildsystem: simple
+        build-commands:
+          - make
+        sources:
+          - type: dir
+            path: metainfo/

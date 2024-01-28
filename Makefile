@@ -1,5 +1,5 @@
 flatpak: linux
-	flatpak-builder --force-clean build/Flatpak/build info.benkle.PoorLittleClown.json
+	flatpak-builder --force-clean build/Flatpak/build info.benkle.PoorLittleClown.yaml
 	flatpak build-export build/Flatpak/export build/Flatpak/build
 	flatpak build-bundle build/Flatpak/export build/Flatpak/info.benkle.PoorLittleClown.flatpak info.benkle.PoorLittleClown
 	rm -rf build/Flatpak/export build/Flatpak/build
