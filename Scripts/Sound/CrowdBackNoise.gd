@@ -9,7 +9,6 @@ func _ready():
 	stream = quite
 
 func _on_finished():
-	print("jo")
 	play()
 
 func audience_excited(new_excited):
