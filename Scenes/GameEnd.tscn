@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ivfw305pmmwl"]
+[gd_scene load_steps=7 format=3 uid="uid://00k381ww21v2"]
 
 [ext_resource type="Script" path="res://Scripts/GameEnd.gd" id="1_eb83s"]
 [ext_resource type="Texture2D" uid="uid://qfn8vtiye5ga" path="res://Assets/Backgrounds/gam over/looser.png" id="1_kxar7"]
 [ext_resource type="Texture2D" uid="uid://b5wtehjks87p0" path="res://Assets/Backgrounds/gam over/winner.png" id="2_sp040"]
+[ext_resource type="AudioStream" uid="uid://ddag7448yq0wx" path="res://Assets/Sounds/BackgroundMusic/loosescreen/sadtrombone.wav" id="3_vxqe8"]
+[ext_resource type="Script" path="res://Scripts/Sound/SimpleNodePlay.gd" id="4_5m6fg"]
+[ext_resource type="AudioStream" uid="uid://dqo3sa4jbhofl" path="res://Assets/Sounds/BackgroundMusic/winscreen/tada.wav" id="6_n7gg4"]
 
 [node name="GameEnd" type="Node2D"]
 script = ExtResource("1_eb83s")
@@ -12,11 +15,24 @@ position = Vector2(464, 307)
 scale = Vector2(0.0452189, 0.0473157)
 
 [node name="Looser" type="Sprite2D" parent="Node2D"]
+visible = false
 position = Vector2(2421.8, 886.395)
 scale = Vector2(5.15276, 4.92442)
 texture = ExtResource("1_kxar7")
 
+[node name="losesound" type="AudioStreamPlayer" parent="Node2D/Looser"]
+stream = ExtResource("3_vxqe8")
+script = ExtResource("4_5m6fg")
+
 [node name="Winner" type="Sprite2D" parent="Node2D"]
+visible = false
 position = Vector2(2421.8, 886.395)
 scale = Vector2(5.15276, 4.92442)
 texture = ExtResource("2_sp040")
+
+[node name="winsound" type="AudioStreamPlayer" parent="Node2D/Winner"]
+stream = ExtResource("6_n7gg4")
+script = ExtResource("4_5m6fg")
+
+[connection signal="visibility_changed" from="Node2D/Looser" to="Node2D/Looser/losesound" method="play_sound"]
+[connection signal="visibility_changed" from="Node2D/Winner" to="Node2D/Winner/winsound" method="play_sound"]
