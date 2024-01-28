@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://4jvnicenn1o2"]
+
+[ext_resource type="Script" path="res://Scripts/GameStart.gd" id="1_t3uq5"]
+[ext_resource type="Texture2D" uid="uid://cakpxomgfgach" path="res://Assets/Backgrounds/Startscreen/startscreen.png" id="2_p761f"]
+[ext_resource type="AudioStream" uid="uid://dkp10r28beoy0" path="res://Assets/Sounds/BackgroundMusic/Titel/clownx27s-march-15544.mp3" id="3_ghwsy"]
+
+[node name="GameStart" type="Node2D"]
+script = ExtResource("1_t3uq5")
+
+[node name="Startscreen" type="Sprite2D" parent="."]
+position = Vector2(576, 324.307)
+scale = Vector2(0.215796, 0.215796)
+texture = ExtResource("2_p761f")
+
+[node name="StartButton" type="CharacterBody2D" parent="."]
+input_pickable = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StartButton"]
+polygon = PackedVector2Array(256, 496, 536, 496, 528, 624, 240, 616)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ghwsy")
+autoplay = true
+
+[connection signal="input_event" from="StartButton" to="." method="_on_start_button_input_event"]

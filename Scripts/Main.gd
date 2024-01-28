@@ -20,3 +20,9 @@ func _on_circus_game_over(success):
 	$Circus.visible = false
 	$GameEnd.visible = true
 	$GameEnd.do_show(success)
+
+
+func _on_game_start_start_clicked():
+	$GameStart.visible = false
+	$Cloakroom.visible = true
+	$Cloakroom.do_show()

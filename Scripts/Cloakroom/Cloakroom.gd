@@ -6,6 +6,9 @@ extends Node2D
 signal stage_ready(hat: String, suit: String)
 signal accesory_clicked()
 
+func do_show():
+	$BackgroundMusic.play()
+
 func _on_hat_clicked(clicked_hat: CharacterBody2D, chosen: bool):
 	accesory_clicked.emit()
 	for hat in $Room/Hats.get_children():
@@ -21,6 +24,7 @@ func _on_suit_clicked(clicked_suit: CharacterBody2D, chosen: bool):
 	selected_suit = clicked_suit.id if chosen else 'naked'
 	
 func _ready_for_stage():
+	$BackgroundMusic.stop()
 	stage_ready.emit(selected_hat, selected_suit)
 
 func _on_go_button(_viewport, event, _shape_idx):

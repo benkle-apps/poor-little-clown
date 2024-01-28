@@ -18,6 +18,9 @@ func do_start(outfit: String):
 	
 func do_stop():
 	$Descore.stop()
+	flashes.emit(0)
+	audience_excited.emit(false)
+	audience_very_excited.emit(false)
 	stop.emit()
 
 func basic_scoring(count: int):

@@ -266,7 +266,6 @@ sounds = Array[AudioStream]([ExtResource("34_djl0h"), ExtResource("35_ey5ty"), E
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("43_g3ing")
 volume_db = -5.516
-autoplay = true
 script = ExtResource("44_b8xvj")
 leaving = ExtResource("45_b3eml")
 

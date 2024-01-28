@@ -19,3 +19,6 @@ func audience_excited(new_excited):
 		else:
 			stream=quite
 		play()
+		
+func shaddup():
+	stop()

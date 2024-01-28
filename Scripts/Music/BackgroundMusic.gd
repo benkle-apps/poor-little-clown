@@ -9,3 +9,6 @@ func _on_finished():
 func play_song():
 	stream=songs[rng.randi_range(0,songs.size()-1)]
 	playing = true
+	
+func stop_song():
+	playing = false
