@@ -1,6 +1,8 @@
 extends Node2D
 
 signal do_score(count: int)
+signal start_showing()
+signal hiding()
 
 @export var ball: PackedScene
 var is_hiding: bool = false
@@ -46,12 +48,14 @@ func is_hidden():
 	return !visible or is_hiding
 	
 func do_hide():
+	hiding.emit()
 	is_hiding = true
 	drop_all_balls()
 	$AnimatedSprite2D.visible = false
 	$HideTimer.start()
 	
 func do_show():
+	start_showing.emit()
 	is_hiding = false
 	$AnimatedSprite2D.visible = true
 	visible = true

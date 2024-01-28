@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8qeugxop532"]
+
+[ext_resource type="AudioStream" uid="uid://b2133fw6qs28b" path="res://Assets/Sounds/UI/243440__reitanna__click-on.wav" id="1_otl4e"]
+[ext_resource type="Script" path="res://Scripts/Sound/UI/ButtonClick.gd" id="2_wllop"]
+
+[node name="ButtonClick" type="AudioStreamPlayer"]
+stream = ExtResource("1_otl4e")
+volume_db = 11.03
+script = ExtResource("2_wllop")

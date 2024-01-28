@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=53 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -29,15 +29,24 @@
 [ext_resource type="Script" path="res://Scripts/Acts/Unicycle.gd" id="27_fhb3v"]
 [ext_resource type="Texture2D" uid="uid://b60sha7pcix4c" path="res://Assets/Clowny/Circus/one wheel/one wheel 1.png" id="27_hln7s"]
 [ext_resource type="Texture2D" uid="uid://jiyg46jj7aul" path="res://Assets/Buttons/Artboard2.png" id="27_vvshc"]
+[ext_resource type="AudioStream" uid="uid://dfhr117dtuby1" path="res://Assets/Sounds/Clowny/394873__deleted_user_6479820__throw-1.mp3" id="27_yujlq"]
 [ext_resource type="Texture2D" uid="uid://boyabtugbwtwk" path="res://Assets/Buttons/Artboard3.png" id="28_4ixbv"]
 [ext_resource type="Texture2D" uid="uid://3wb5uwu1c6u3" path="res://Assets/Clowny/Circus/one wheel/one wheel 2.png" id="28_e3emj"]
 [ext_resource type="Texture2D" uid="uid://cdsc2v65tav0c" path="res://Assets/Buttons/Artboard4.png" id="29_vkyjg"]
+[ext_resource type="AudioStream" uid="uid://bogtvypsfbkvl" path="res://Assets/Sounds/Clowny/squicky whwel7.wav" id="30_6gqem"]
 [ext_resource type="Texture2D" uid="uid://2bbkicdv5vix" path="res://Assets/Clowny/Circus/pie/pie1.png" id="30_58fkr"]
 [ext_resource type="Script" path="res://Scripts/Acts/Pie.gd" id="30_biymb"]
 [ext_resource type="Texture2D" uid="uid://cf8kne61pr8rt" path="res://Assets/Clowny/Circus/pie/pie2.png" id="31_a0tfa"]
+[ext_resource type="Script" path="res://Scripts/Sound/simplenodeplaywithdisable.gd" id="31_c22lq"]
 [ext_resource type="Texture2D" uid="uid://bedwxa4fiocte" path="res://Assets/Clowny/Circus/pie/pie3.png" id="32_xwl8a"]
 [ext_resource type="Texture2D" uid="uid://4qyh8ijiaicj" path="res://Assets/Clowny/Circus/Extras/pie.png" id="34_23vrb"]
+[ext_resource type="AudioStream" uid="uid://cmubwi41ysqfg" path="res://Assets/Sounds/Clowny/326133__wagna__falling.wav" id="35_quluq"]
+[ext_resource type="Script" path="res://Scripts/Effects/PieFlungSound.gd" id="35_xt52y"]
+[ext_resource type="PackedScene" uid="uid://bp8qeugxop532" path="res://Assets/Buttons/button_click_Sound.tscn" id="36_3mchy"]
+[ext_resource type="AudioStream" uid="uid://dypfdpyigi65e" path="res://Assets/Sounds/Clowny/266535__gcastanera__smashed-bug.wav" id="37_aucum"]
+[ext_resource type="Script" path="res://Scripts/Sound/SimpleNodePlay.gd" id="37_ns55f"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="38_v2qeq"]
+[ext_resource type="AudioStream" uid="uid://cj6gbklo5sxt3" path="res://Assets/Sounds/Clowny/445974__breviceps__cartoon-slurp.wav" id="39_yf2b7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
 animations = [{
@@ -162,17 +171,16 @@ mix_target = 1
 script = ExtResource("10_i8cn3")
 songs = Array[AudioStream]([ExtResource("11_3fisa"), ExtResource("12_0kfw4"), ExtResource("13_qql34")])
 
+[node name="Random_Laugh" type="AudioStreamPlayer" parent="Audio"]
+volume_db = 15.077
+script = ExtResource("17_dwa06")
+laughs = Array[AudioStream]([ExtResource("18_hgvu2"), ExtResource("19_8fdwx"), ExtResource("20_35a18"), ExtResource("21_l5ngc")])
+
 [node name="CrowdBackNoise" type="AudioStreamPlayer" parent="Audio"]
-volume_db = 12.219
-mix_target = 1
+volume_db = 11.625
 script = ExtResource("14_qhap5")
 quite = ExtResource("15_ge4dh")
 excited = ExtResource("16_auneo")
-
-[node name="Random_Laugh" type="AudioStreamPlayer" parent="Audio"]
-volume_db = 14.235
-script = ExtResource("17_dwa06")
-laughs = Array[AudioStream]([ExtResource("18_hgvu2"), ExtResource("19_8fdwx"), ExtResource("20_35a18"), ExtResource("21_l5ngc")])
 
 [node name="Acts" type="Node2D" parent="."]
 script = ExtResource("22_nuily")
@@ -194,6 +202,10 @@ curve = SubResource("Curve2D_bau0j")
 wait_time = 3.0
 one_shot = true
 
+[node name="Juglesound" type="AudioStreamPlayer" parent="Acts/Juggling"]
+stream = ExtResource("27_yujlq")
+script = ExtResource("31_c22lq")
+
 [node name="Unicycle" type="Node2D" parent="Acts"]
 visible = false
 position = Vector2(535, 590)
@@ -207,6 +219,10 @@ position = Vector2(8.00006, -185)
 scale = Vector2(0.13116, 0.13116)
 sprite_frames = SubResource("SpriteFrames_v7jnb")
 autoplay = "default"
+
+[node name="Squeky Wheel" type="AudioStreamPlayer" parent="Acts/Unicycle/AnimatedSprite2D"]
+stream = ExtResource("30_6gqem")
+script = ExtResource("31_c22lq")
 
 [node name="Pie" type="Node2D" parent="Acts"]
 visible = false
@@ -230,6 +246,24 @@ rotation = 2.12322
 scale = Vector2(2, 2)
 texture = ExtResource("34_23vrb")
 
+[node name="FlingSound" type="AudioStreamPlayer" parent="Acts/Pie"]
+stream = ExtResource("35_quluq")
+volume_db = 13.394
+mix_target = 1
+script = ExtResource("35_xt52y")
+
+[node name="hitscript" type="AudioStreamPlayer" parent="Acts/Pie"]
+stream = ExtResource("37_aucum")
+volume_db = 18.909
+pitch_scale = 1.42
+mix_target = 1
+script = ExtResource("37_ns55f")
+
+[node name="Licksound" type="AudioStreamPlayer" parent="Acts/Pie/hitscript"]
+stream = ExtResource("39_yf2b7")
+volume_db = 21.273
+script = ExtResource("37_ns55f")
+
 [node name="JugglingButton" type="CharacterBody2D" parent="Acts"]
 input_pickable = true
 
@@ -240,6 +274,8 @@ texture = ExtResource("27_vvshc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/JugglingButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
+
+[node name="ButtonClick" parent="Acts/JugglingButton" instance=ExtResource("36_3mchy")]
 
 [node name="UnicycleButton" type="CharacterBody2D" parent="Acts"]
 position = Vector2(-127, -2)
@@ -253,6 +289,8 @@ texture = ExtResource("28_4ixbv")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/UnicycleButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
+[node name="ButtonClick" parent="Acts/UnicycleButton" instance=ExtResource("36_3mchy")]
+
 [node name="PieButton" type="CharacterBody2D" parent="Acts"]
 position = Vector2(-251, -1)
 input_pickable = true
@@ -264,6 +302,8 @@ texture = ExtResource("29_vkyjg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/PieButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
+
+[node name="ButtonClick" parent="Acts/PieButton" instance=ExtResource("36_3mchy")]
 
 [node name="Descore" type="Timer" parent="."]
 wait_time = 3.0
@@ -277,7 +317,6 @@ theme_override_font_sizes/font_size = 64
 text = "Trololo"
 script = ExtResource("38_v2qeq")
 
-[connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
 [connection signal="audience_excited" from="." to="Audio/Random_Laugh" method="_on_node_2d_audience_excited"]
 [connection signal="audience_very_excited" from="." to="Audio/Random_Laugh" method="audience_very_excited"]
 [connection signal="flashes" from="." to="Background/Flashes/Flash1" method="set_likelyhood"]
@@ -291,14 +330,26 @@ script = ExtResource("38_v2qeq")
 [connection signal="finished" from="Audio/BackgroundMusic" to="Audio/BackgroundMusic" method="_on_finished"]
 [connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]
 [connection signal="do_score" from="Acts/Juggling" to="." method="basic_scoring"]
+[connection signal="hiding" from="Acts/Juggling" to="Acts/Juggling/Juglesound" method="disable"]
+[connection signal="start_showing" from="Acts/Juggling" to="Acts/Juggling/Juglesound" method="enable"]
+[connection signal="animation_looped" from="Acts/Juggling/AnimatedSprite2D" to="Acts/Juggling/Juglesound" method="play_sound"]
 [connection signal="timeout" from="Acts/Juggling/HideTimer" to="Acts/Juggling" method="_on_hide_timer_timeout"]
-[connection signal="do_score" from="Acts/Unicycle" to="." method="basic_scoring"]
+[connection signal="hidden" from="Acts/Unicycle" to="Acts/Unicycle/AnimatedSprite2D/Squeky Wheel" method="disable"]
+[connection signal="squek_start" from="Acts/Unicycle" to="Acts/Unicycle/AnimatedSprite2D/Squeky Wheel" method="enable"]
 [connection signal="timeout" from="Acts/Unicycle/Timer" to="Acts/Unicycle" method="_on_timer_timeout"]
+[connection signal="animation_looped" from="Acts/Unicycle/AnimatedSprite2D" to="Acts/Unicycle/AnimatedSprite2D/Squeky Wheel" method="play_sound"]
 [connection signal="do_score" from="Acts/Pie" to="." method="basic_scoring"]
 [connection signal="pie_fling_finished" from="Acts/Pie" to="Acts" method="_on_pie_pie_fling_finished"]
+[connection signal="pie_has_flung" from="Acts/Pie" to="Acts/Pie/FlingSound" method="pie_has_flung"]
 [connection signal="pie_has_hit" from="Acts/Pie" to="Acts" method="_on_pie_pie_has_hit"]
+[connection signal="pie_has_hit" from="Acts/Pie" to="Acts/Pie/FlingSound" method="_on_pie_pie_has_hit"]
+[connection signal="pie_has_hit" from="Acts/Pie" to="Acts/Pie/hitscript" method="play_sound"]
 [connection signal="animation_finished" from="Acts/Pie/Pied" to="Acts/Pie" method="_on_pied_animation_finished"]
+[connection signal="finished" from="Acts/Pie/hitscript" to="Acts/Pie/hitscript/Licksound" method="play_sound"]
 [connection signal="input_event" from="Acts/JugglingButton" to="Acts" method="_juggling_button_pressed"]
+[connection signal="input_event" from="Acts/JugglingButton" to="Acts/JugglingButton/ButtonClick" method="_on_button_input_event"]
 [connection signal="input_event" from="Acts/UnicycleButton" to="Acts" method="_unicycle_button_pressed"]
+[connection signal="input_event" from="Acts/UnicycleButton" to="Acts/UnicycleButton/ButtonClick" method="_on_button_input_event"]
 [connection signal="input_event" from="Acts/PieButton" to="Acts" method="_cake_button_pressed"]
+[connection signal="input_event" from="Acts/PieButton" to="Acts/PieButton/ButtonClick" method="_on_button_input_event"]
 [connection signal="timeout" from="Descore" to="." method="_on_descore_timeout"]

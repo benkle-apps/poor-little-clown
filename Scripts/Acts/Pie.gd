@@ -1,11 +1,13 @@
 extends Node2D
 
 signal pie_has_hit()
+signal pie_has_flung()
 signal pie_fling_finished()
 signal do_score(count: int)
 var pie_is_flying: bool = false
 
 func fling_da_pie():
+	pie_has_flung.emit()
 	$Pied.frame = 0
 	$Pied.stop()
 	$Pied.visible = false
@@ -28,7 +30,7 @@ func splat():
 	$Pied.visible = true
 	$Pie/Follow/Sprite.visible = false
 	$Pied.play('default')
-	do_score.emit(50)
+	do_score.emit(200)
 
 func _on_pied_animation_finished():
 	pie_fling_finished.emit()

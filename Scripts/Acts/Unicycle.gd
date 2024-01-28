@@ -6,8 +6,10 @@ var started: bool = false
 var rim: int = 250
 
 signal do_score(count: int)
+signal squek_start()
 
 func do_start():
+	squek_start.emit()
 	$Timer.start()
 	rotate_to = 0
 	started = true

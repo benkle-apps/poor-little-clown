@@ -19,9 +19,9 @@ func basic_scoring(count: int):
 func update_audience():
 	$Score.text = str(score)
 	audience_excited.emit(score > 500)
-	audience_excited.emit(score > 1500)
-	flashes.emit(score / 25)
+	audience_very_excited.emit(score > 1000)
+	flashes.emit(score / 75)
 
 
 func _on_descore_timeout():
-	basic_scoring(-10)
+	basic_scoring(-50)

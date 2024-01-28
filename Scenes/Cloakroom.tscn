@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://kq6l4lsxula7"]
+[gd_scene load_steps=49 format=3 uid="uid://kq6l4lsxula7"]
 
 [ext_resource type="Script" path="res://Scripts/Cloakroom/Cloakroom.gd" id="1_6hmxn"]
 [ext_resource type="Texture2D" uid="uid://dyrfmgdkjheq" path="res://Assets/Backgrounds/Cloakroom/Background.png" id="2_nkpyl"]
@@ -47,8 +47,7 @@
 [ext_resource type="Script" path="res://Scripts/Sound/CloakroomBackgroundAndLeaving.gd" id="44_b8xvj"]
 [ext_resource type="AudioStream" uid="uid://brh1xhj7y15vr" path="res://Assets/Sounds/Circus/Audience/386764__ken788__crowd_applause short.wav" id="45_b3eml"]
 [ext_resource type="Texture2D" uid="uid://ctdv2accnjq7n" path="res://Assets/Buttons/Artboard1.png" id="46_dorgs"]
-[ext_resource type="AudioStream" uid="uid://b2133fw6qs28b" path="res://Assets/Sounds/UI/243440__reitanna__click-on.wav" id="48_2qohd"]
-[ext_resource type="Script" path="res://Scripts/Sound/UI/ButtonClick.gd" id="48_e1p8m"]
+[ext_resource type="PackedScene" uid="uid://bp8qeugxop532" path="res://Assets/Buttons/button_click_Sound.tscn" id="48_liy7n"]
 
 [node name="Cloakroom" type="Node2D"]
 scale = Vector2(0.288, 0.288)
@@ -283,10 +282,7 @@ texture = ExtResource("46_dorgs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Button"]
 polygon = PackedVector2Array(2576.39, 1975.69, 2565.97, 2173.61, 3447.92, 2170.14, 3447.92, 1954.86)
 
-[node name="ButtonClick" type="AudioStreamPlayer" parent="Button"]
-stream = ExtResource("48_2qohd")
-volume_db = 6.303
-script = ExtResource("48_e1p8m")
+[node name="ButtonClick" parent="Button" instance=ExtResource("48_liy7n")]
 
 [connection signal="accesory_clicked" from="." to="ChangeCloths" method="accesory_clicked"]
 [connection signal="stage_ready" from="." to="BackgroundMusic" method="stage_ready"]
