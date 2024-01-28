@@ -9,6 +9,9 @@ func _juggling_button_pressed(_viewport, event, _shape_idx):
 			$Juggling.do_show()
 			$Unicycle.visible = false
 			$Pie.visible = false
+		elif Input.is_physical_key_pressed(KEY_CTRL):
+			for i in range(20):
+				$Juggling.add_ball()
 		else:
 			$Juggling.add_ball()
 			

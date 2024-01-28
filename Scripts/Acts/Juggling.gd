@@ -21,6 +21,8 @@ func add_5_balls(count: bool = false):
 		do_score.emit(5)
 		
 func add_ball(progress: float = 0.0):
+	if $Path.get_children().size() > 50:
+		return
 	var follow = PathFollow2D.new()
 	var b = ball.instantiate()
 	b.connect('clicked', self._on_ball_clicked)
