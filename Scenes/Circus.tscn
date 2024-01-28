@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cw5vur68c6e31"]
+[gd_scene load_steps=43 format=3 uid="uid://cw5vur68c6e31"]
 
 [ext_resource type="Script" path="res://Scripts/Circus.gd" id="1_4csm5"]
 [ext_resource type="Script" path="res://Scripts/Effects/StageLightsAnimator.gd" id="2_ofu1d"]
@@ -32,6 +32,11 @@
 [ext_resource type="Texture2D" uid="uid://boyabtugbwtwk" path="res://Assets/Buttons/Artboard3.png" id="28_4ixbv"]
 [ext_resource type="Texture2D" uid="uid://3wb5uwu1c6u3" path="res://Assets/Clowny/Circus/one wheel/one wheel 2.png" id="28_e3emj"]
 [ext_resource type="Texture2D" uid="uid://cdsc2v65tav0c" path="res://Assets/Buttons/Artboard4.png" id="29_vkyjg"]
+[ext_resource type="Texture2D" uid="uid://2bbkicdv5vix" path="res://Assets/Clowny/Circus/pie/pie1.png" id="30_58fkr"]
+[ext_resource type="Script" path="res://Scripts/Acts/Pie.gd" id="30_biymb"]
+[ext_resource type="Texture2D" uid="uid://cf8kne61pr8rt" path="res://Assets/Clowny/Circus/pie/pie2.png" id="31_a0tfa"]
+[ext_resource type="Texture2D" uid="uid://bedwxa4fiocte" path="res://Assets/Clowny/Circus/pie/pie3.png" id="32_xwl8a"]
+[ext_resource type="Texture2D" uid="uid://4qyh8ijiaicj" path="res://Assets/Clowny/Circus/Extras/pie.png" id="34_23vrb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8kxqx"]
 animations = [{
@@ -66,6 +71,29 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvny5"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("30_58fkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_a0tfa")
+}, {
+"duration": 4.0,
+"texture": ExtResource("32_xwl8a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_wyk1e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3784.59, 2956.24, 989.508, 938.327, -989.508, -938.327, 1671.91, 220.388, 0, 0, 0, 0, 60.7969, -623.166)
+}
+point_count = 3
 
 [node name="Circus" type="Node2D"]
 script = ExtResource("1_4csm5")
@@ -179,6 +207,28 @@ scale = Vector2(0.13116, 0.13116)
 sprite_frames = SubResource("SpriteFrames_v7jnb")
 autoplay = "default"
 
+[node name="Pie" type="Node2D" parent="Acts"]
+visible = false
+position = Vector2(542, 424)
+scale = Vector2(0.131586, 0.131586)
+script = ExtResource("30_biymb")
+
+[node name="Pied" type="AnimatedSprite2D" parent="Acts/Pie"]
+sprite_frames = SubResource("SpriteFrames_cvny5")
+
+[node name="Pie" type="Path2D" parent="Acts/Pie"]
+curve = SubResource("Curve2D_wyk1e")
+
+[node name="Follow" type="PathFollow2D" parent="Acts/Pie/Pie"]
+position = Vector2(3784.59, 2956.24)
+rotation = -2.22837
+
+[node name="Sprite" type="Sprite2D" parent="Acts/Pie/Pie/Follow"]
+position = Vector2(12.9385, 7.9754)
+rotation = 2.12322
+scale = Vector2(2, 2)
+texture = ExtResource("34_23vrb")
+
 [node name="JugglingButton" type="CharacterBody2D" parent="Acts"]
 input_pickable = true
 
@@ -202,16 +252,16 @@ texture = ExtResource("28_4ixbv")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/UnicycleButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
-[node name="CakeButton" type="CharacterBody2D" parent="Acts"]
+[node name="PieButton" type="CharacterBody2D" parent="Acts"]
 position = Vector2(-251, -1)
 input_pickable = true
 
-[node name="Sprite" type="Sprite2D" parent="Acts/CakeButton"]
+[node name="Sprite" type="Sprite2D" parent="Acts/PieButton"]
 position = Vector2(1076, 61)
 scale = Vector2(0.118405, 0.118405)
 texture = ExtResource("29_vkyjg")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/CakeButton"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/PieButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
 [connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
@@ -231,6 +281,9 @@ polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 [connection signal="ball_dropped" from="Acts/Juggling" to="." method="basic_scoring"]
 [connection signal="timeout" from="Acts/Juggling/HideTimer" to="Acts/Juggling" method="_on_hide_timer_timeout"]
 [connection signal="timeout" from="Acts/Unicycle/Timer" to="Acts/Unicycle" method="_on_timer_timeout"]
+[connection signal="pie_fling_finished" from="Acts/Pie" to="Acts" method="_on_pie_pie_fling_finished"]
+[connection signal="pie_has_hit" from="Acts/Pie" to="Acts" method="_on_pie_pie_has_hit"]
+[connection signal="animation_finished" from="Acts/Pie/Pied" to="Acts/Pie" method="_on_pied_animation_finished"]
 [connection signal="input_event" from="Acts/JugglingButton" to="Acts" method="_juggling_button_pressed"]
 [connection signal="input_event" from="Acts/UnicycleButton" to="Acts" method="_unicycle_button_pressed"]
-[connection signal="input_event" from="Acts/CakeButton" to="Acts" method="_unicycle_button_pressed"]
+[connection signal="input_event" from="Acts/PieButton" to="Acts" method="_cake_button_pressed"]
