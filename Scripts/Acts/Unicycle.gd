@@ -5,10 +5,13 @@ var angles: Array[int] = [-35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25
 var started: bool = false
 var rim: int = 250
 
+signal do_score(count: int)
+
 func do_start():
 	$Timer.start()
 	rotate_to = 0
 	started = true
+	do_score.emit(25)
 
 func _process(delta):
 	if not started:

@@ -264,6 +264,10 @@ texture = ExtResource("29_vkyjg")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Acts/PieButton"]
 polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
+[node name="Descore" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
 [connection signal="audience_excited" from="." to="Audio/Random_Laugh" method="_on_node_2d_audience_excited"]
 [connection signal="audience_very_excited" from="." to="Audio/Random_Laugh" method="audience_very_excited"]
@@ -277,13 +281,15 @@ polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 [connection signal="start" from="." to="Audio/CrowdBackNoise" method="_on_finished"]
 [connection signal="finished" from="Audio/BackgroundMusic" to="Audio/BackgroundMusic" method="_on_finished"]
 [connection signal="finished" from="Audio/CrowdBackNoise" to="Audio/CrowdBackNoise" method="_on_finished"]
-[connection signal="ball_added" from="Acts/Juggling" to="." method="basic_scoring"]
-[connection signal="ball_dropped" from="Acts/Juggling" to="." method="basic_scoring"]
+[connection signal="do_score" from="Acts/Juggling" to="." method="basic_scoring"]
 [connection signal="timeout" from="Acts/Juggling/HideTimer" to="Acts/Juggling" method="_on_hide_timer_timeout"]
+[connection signal="do_score" from="Acts/Unicycle" to="." method="basic_scoring"]
 [connection signal="timeout" from="Acts/Unicycle/Timer" to="Acts/Unicycle" method="_on_timer_timeout"]
+[connection signal="do_score" from="Acts/Pie" to="." method="basic_scoring"]
 [connection signal="pie_fling_finished" from="Acts/Pie" to="Acts" method="_on_pie_pie_fling_finished"]
 [connection signal="pie_has_hit" from="Acts/Pie" to="Acts" method="_on_pie_pie_has_hit"]
 [connection signal="animation_finished" from="Acts/Pie/Pied" to="Acts/Pie" method="_on_pied_animation_finished"]
 [connection signal="input_event" from="Acts/JugglingButton" to="Acts" method="_juggling_button_pressed"]
 [connection signal="input_event" from="Acts/UnicycleButton" to="Acts" method="_unicycle_button_pressed"]
 [connection signal="input_event" from="Acts/PieButton" to="Acts" method="_cake_button_pressed"]
+[connection signal="timeout" from="Descore" to="." method="_on_descore_timeout"]

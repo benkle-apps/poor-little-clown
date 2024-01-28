@@ -20,3 +20,7 @@ func update_audience():
 	audience_excited.emit(score > 500)
 	audience_excited.emit(score > 1500)
 	flashes.emit(score / 25)
+
+
+func _on_descore_timeout():
+	basic_scoring(-10)
