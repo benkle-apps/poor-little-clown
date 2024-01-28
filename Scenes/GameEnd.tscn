@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://00k381ww21v2"]
+[gd_scene load_steps=8 format=3 uid="uid://00k381ww21v2"]
 
 [ext_resource type="Script" path="res://Scripts/GameEnd.gd" id="1_eb83s"]
 [ext_resource type="Texture2D" uid="uid://qfn8vtiye5ga" path="res://Assets/Backgrounds/gam over/looser.png" id="1_kxar7"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ddag7448yq0wx" path="res://Assets/Sounds/BackgroundMusic/loosescreen/sadtrombone.wav" id="3_vxqe8"]
 [ext_resource type="Script" path="res://Scripts/Sound/SimpleNodePlay.gd" id="4_5m6fg"]
 [ext_resource type="AudioStream" uid="uid://dqo3sa4jbhofl" path="res://Assets/Sounds/BackgroundMusic/winscreen/tada.wav" id="6_n7gg4"]
+[ext_resource type="AudioStream" uid="uid://efscjkw35jnc" path="res://Assets/Sounds/Clowny/697898__akapastels__clown-laugh.wav" id="7_e707f"]
 
 [node name="GameEnd" type="Node2D"]
 script = ExtResource("1_eb83s")
@@ -22,6 +23,7 @@ texture = ExtResource("1_kxar7")
 
 [node name="losesound" type="AudioStreamPlayer" parent="Node2D/Looser"]
 stream = ExtResource("3_vxqe8")
+volume_db = 3.947
 script = ExtResource("4_5m6fg")
 
 [node name="Winner" type="Sprite2D" parent="Node2D"]
@@ -34,5 +36,11 @@ texture = ExtResource("2_sp040")
 stream = ExtResource("6_n7gg4")
 script = ExtResource("4_5m6fg")
 
+[node name="windlaugh" type="AudioStreamPlayer" parent="Node2D/Winner"]
+stream = ExtResource("7_e707f")
+pitch_scale = 1.36
+script = ExtResource("4_5m6fg")
+
 [connection signal="visibility_changed" from="Node2D/Looser" to="Node2D/Looser/losesound" method="play_sound"]
 [connection signal="visibility_changed" from="Node2D/Winner" to="Node2D/Winner/winsound" method="play_sound"]
+[connection signal="finished" from="Node2D/Winner/winsound" to="Node2D/Winner/windlaugh" method="play_sound"]
