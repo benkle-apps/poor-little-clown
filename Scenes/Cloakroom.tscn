@@ -47,7 +47,7 @@
 [ext_resource type="Script" path="res://Scripts/Sound/CloakroomBackgroundAndLeaving.gd" id="44_b8xvj"]
 [ext_resource type="AudioStream" uid="uid://brh1xhj7y15vr" path="res://Assets/Sounds/Circus/Audience/386764__ken788__crowd_applause short.wav" id="45_b3eml"]
 [ext_resource type="Texture2D" uid="uid://ctdv2accnjq7n" path="res://Assets/Buttons/Artboard1.png" id="46_dorgs"]
-[ext_resource type="AudioStream" path="res://Assets/Sounds/UI/243440__reitanna__click-on.wav" id="48_2qohd"]
+[ext_resource type="AudioStream" uid="uid://b2133fw6qs28b" path="res://Assets/Sounds/UI/243440__reitanna__click-on.wav" id="48_2qohd"]
 [ext_resource type="Script" path="res://Scripts/Sound/UI/ButtonClick.gd" id="48_e1p8m"]
 
 [node name="Cloakroom" type="Node2D"]

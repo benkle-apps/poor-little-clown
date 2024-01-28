@@ -1,7 +1,7 @@
 extends Node2D
 
 var rotate_to: int
-var angles: Array[int] = [-35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30]
+var angles: Array[int] = [-35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35]
 var started: bool = false
 var rim: int = 250
 
@@ -21,6 +21,8 @@ func _process(delta):
 		rotation_degrees = clamp(rotation_degrees + dir * 25, -35, 35)
 		if int(rotate_to) == int(rotation_degrees):
 			rotation_degrees = rotate_to
+	if abs(rotation_degrees) > 20:
+		do_score.emit(1)
 	position.x += delta * rotation_degrees * 50
 	position.x = clamp(position.x, rim, get_viewport_rect().size.x - rim)
 

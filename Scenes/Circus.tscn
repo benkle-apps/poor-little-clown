@@ -266,7 +266,6 @@ polygon = PackedVector2Array(1021, 20, 1021, 105, 1130, 107, 1129, 18)
 
 [node name="Descore" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [connection signal="audience_excited" from="." to="Audio/CrowdBackNoise" method="audience_excited"]
 [connection signal="audience_excited" from="." to="Audio/Random_Laugh" method="_on_node_2d_audience_excited"]

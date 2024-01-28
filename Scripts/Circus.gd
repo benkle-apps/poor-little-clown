@@ -10,6 +10,7 @@ var score: int = 0
 func do_start():
 	start.emit()
 	flashes.emit(1)
+	$Descore.start()
 
 func basic_scoring(count: int):
 	score += count
