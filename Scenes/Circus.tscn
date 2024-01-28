@@ -211,9 +211,6 @@ visible = false
 position = Vector2(535, 590)
 script = ExtResource("27_fhb3v")
 
-[node name="Timer" type="Timer" parent="Acts/Unicycle"]
-wait_time = 0.5
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Acts/Unicycle"]
 position = Vector2(8.00006, -185)
 scale = Vector2(0.13116, 0.13116)
@@ -334,9 +331,9 @@ script = ExtResource("38_v2qeq")
 [connection signal="start_showing" from="Acts/Juggling" to="Acts/Juggling/Juglesound" method="enable"]
 [connection signal="animation_looped" from="Acts/Juggling/AnimatedSprite2D" to="Acts/Juggling/Juglesound" method="play_sound"]
 [connection signal="timeout" from="Acts/Juggling/HideTimer" to="Acts/Juggling" method="_on_hide_timer_timeout"]
+[connection signal="do_score" from="Acts/Unicycle" to="." method="basic_scoring"]
 [connection signal="hidden" from="Acts/Unicycle" to="Acts/Unicycle/AnimatedSprite2D/Squeky Wheel" method="disable"]
 [connection signal="squek_start" from="Acts/Unicycle" to="Acts/Unicycle/AnimatedSprite2D/Squeky Wheel" method="enable"]
-[connection signal="timeout" from="Acts/Unicycle/Timer" to="Acts/Unicycle" method="_on_timer_timeout"]
 [connection signal="animation_looped" from="Acts/Unicycle/AnimatedSprite2D" to="Acts/Unicycle/AnimatedSprite2D/Squeky Wheel" method="play_sound"]
 [connection signal="do_score" from="Acts/Pie" to="." method="basic_scoring"]
 [connection signal="pie_fling_finished" from="Acts/Pie" to="Acts" method="_on_pie_pie_fling_finished"]

@@ -13,7 +13,4 @@ visible = false
 [node name="Cloakroom" parent="." instance=ExtResource("1_pf85s")]
 
 [connection signal="audience_excited" from="Circus" to="Circus/Audio/CrowdBackNoise" method="audience_excited"]
-[connection signal="audience_very_excited" from="Circus" to="Circus/Audio/Random_Laugh" method="audience_very_excited"]
-[connection signal="accesory_clicked" from="Cloakroom" to="Cloakroom/ChangeCloths" method="accesory_clicked"]
 [connection signal="stage_ready" from="Cloakroom" to="." method="_on_cloakroom_stage_ready"]
-[connection signal="stage_ready" from="Cloakroom" to="Cloakroom/BackgroundMusic" method="stage_ready"]

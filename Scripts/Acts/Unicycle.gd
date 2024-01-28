@@ -1,16 +1,19 @@
 extends Node2D
 
 var rotate_to: int
-var angles: Array[int] = [-35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35]
+var time_to_exhaustion: float = 0
 var started: bool = false
 var rim: int = 250
+var anti_rim: int
 
 signal do_score(count: int)
 signal squek_start()
 
+func _ready():
+	anti_rim = get_viewport_rect().size.x - rim
+
 func do_start():
 	squek_start.emit()
-	$Timer.start()
 	rotate_to = 0
 	started = true
 	do_score.emit(25)
@@ -18,21 +21,17 @@ func do_start():
 func _process(delta):
 	if not started:
 		return
+	time_to_exhaustion += delta
+	rotate_to = clamp((get_global_mouse_position().x - position.x) / 10, -35, 35)
 	if rotate_to != rotation_degrees:
-		var dir = delta if rotate_to > rotation_degrees else -delta
-		rotation_degrees = clamp(rotation_degrees + dir * 25, -35, 35)
+		var dir = 1 if rotate_to > rotation_degrees else -1
+		var old_lean = sign(rotation_degrees)
+		rotation_degrees = clamp(rotation_degrees + dir * delta * 75, -35, 35)
+		if sign(rotation_degrees) != old_lean:
+			time_to_exhaustion = 0
 		if int(rotate_to) == int(rotation_degrees):
 			rotation_degrees = rotate_to
-	if abs(rotation_degrees) > 20:
-		do_score.emit(1)
+	if abs(rotation_degrees) > 10 and time_to_exhaustion < 3:
+		do_score.emit(int(abs(rotation_degrees)/10))
 	position.x += delta * rotation_degrees * 50
-	position.x = clamp(position.x, rim, get_viewport_rect().size.x - rim)
-
-func _on_timer_timeout():
-	var limit = 12
-	if int(rotate_to) == int(rotation_degrees) and randi() % 20 > 12:
-		rotate_to = angles[randi() % angles.size()]
-	if position.x == rim:
-		rotate_to = 5
-	elif position.x == get_viewport_rect().size.x - rim:
-		rotate_to = -5
+	position.x = clamp(position.x, rim, anti_rim)
