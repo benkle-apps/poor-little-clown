@@ -2,9 +2,9 @@ extends Node2D
 
 func _juggling_button_pressed(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed:
-		if not $Juggling.visible:
+		if $Juggling.is_hidden():
 			$Juggling.add_5_balls()
-			$Juggling.visible = true
+			$Juggling.do_show()
 			$Unicycle.visible = false
 		else:
 			$Juggling.add_ball()

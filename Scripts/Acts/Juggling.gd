@@ -4,6 +4,7 @@ signal ball_dropped(drop_count: int)
 signal ball_added(add_count: int)
 
 @export var ball: PackedScene
+var is_hiding: bool = false
 
 func _ready():
 	add_5_balls()
@@ -42,12 +43,22 @@ func _on_ball_clicked(clicked_ball: Node2D):
 	clicked_ball.drop()
 	ball_dropped.emit(1)
 	
+func is_hidden():
+	return !visible or is_hiding
+	
 func do_hide():
+	is_hiding = true
 	drop_all_balls()
 	$AnimatedSprite2D.visible = false
 	$HideTimer.start()
-
-
+	
+func do_show():
+	is_hiding = false
+	$AnimatedSprite2D.visible = true
+	visible = true
+	$HideTimer.stop()
+	
 func _on_hide_timer_timeout():
+	is_hiding = false
 	$AnimatedSprite2D.visible = true
 	visible = false
